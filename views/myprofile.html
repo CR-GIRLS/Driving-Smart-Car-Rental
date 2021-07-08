@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive Smart Car Rental</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a class="navbar-brand mr-4 nav-item nav-link" href="index.html">
+
+                <img src="images/logo1.jpg" alt="DriveSmart" width="120" height="90">
+
+            </a>
+            <!-- <img src="images/Drive Smart Logo.png"> -->
+        </div>
+
+        <div class="right">
+            <h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
+            <br>
+            <ul style="z-index: 1000;">
+                <li>
+                    <a href="#">Book a Vehicle</a>
+                    <ul>
+                        <li><a class="nav-link" href="car.html">Car</a></li>
+
+                        <li><a class="nav-link" href="suv.html">SUV</a></li>
+                        <li><a class="nav-link" href="van.html">Van</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="booking_form.html">Manage Booking</a>
+
+                </li>
+
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="Contactus.html">Contact Us</a></li>
+                <li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
+                <li><a href="SignIn.html">SIGN IN / JOIN</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-xl-12 col-md-12">
+                        <div class="card user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-4 bg-c-lite-green user-profile">
+                                    <div class="card-block text-center text-white">
+                                        <div class="m-b-25"> <img
+                                                src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                                class="img-radius" alt="User-Profile-Image"> </div>
+                                        <h6 class="f-w-600" id="name"></h6>
+                                        <p>Web Designer</p> <i
+                                            class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="card-block">
+                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="m-b-10 f-w-600">First Name</p>
+                                                    <input class="form-control" type="text" placeholder="First Name"
+                                                        id="fname" required autofocus>
+                                                    <span class="text-red"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Last Name</p>
+                                                <input class="form-control" type="text" placeholder="Last Name"
+                                                    id="lname" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <p class="m-b-10 f-w-600">Email</p>
+                                                    <input class="form-control" type="text" placeholder="Email"
+                                                        id="email" disabled required>
+                                                    <span class="text-red"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Phone</p>
+                                                <input class="form-control" type="text" placeholder="Phone" id="phone"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Licences</h6> -->
+                                        <!-- <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driving Licence</p>
+                                                <img width="150" height="150" id="placeholder"
+                                                    src="http://placehold.it/150x150&text='click to upload'">
+                                                <input type="file" class="form-control-file hidden" id="licence"
+                                                    onchange="previewFile()">
+                                            </div>
+
+                                        </div> -->
+                                        <br>
+                                        <h6></h6>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <input class="btn btn-info" type="submit" id="profile_update"
+                                                    value="Update">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <img src="images/logo1.jpg">
+            <h3>About<span>DriveSmart</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Blog</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">© 2021 Drive Smart </p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>123 Dundas StBrantford
+                    </span>
+                    Toronto,ON N3R 1S6,Canada</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 123-256-7890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                We offer renting service.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var fullname = sessionStorage.getItem('fullname');
+            var email = sessionStorage.getItem('email');
+            var phone = sessionStorage.getItem('phone');
+            if (fullname != undefined && fullname != "" && fullname != null) {
+                $('#welcome_msg').html('Welcome ' + fullname);
+                $('#name').html(fullname);
+                $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>');
+                $('#li_myprofile').css('display', '');
+
+                var name = fullname.split(' ');
+                $('#fname').val(name[0]);
+                $('#lname').val(name[1]);
+
+            }
+
+            if (email != undefined && email != "" && email != null) {
+                $('#email').val(email);
+            }
+            if (phone != undefined && phone != "" && phone != null) {
+                $('#phone').val(phone);
+            }
+
+        });
+
+        function Logout() {
+            sessionStorage.removeItem('email')
+            sessionStorage.removeItem('fullname')
+            window.location.replace("logout.html");
+        }
+
+        $("#profile_update").click(function (event) {
+            var firstname = $('#fname').val();
+            var lastname = $('#lname').val();
+            var phone = $('#phone').val();
+            var fullname = firstname + " " + lastname;
+
+            sessionStorage.setItem('fullname', fullname);
+            sessionStorage.setItem('phone', phone);
+            $('#welcome_msg').html('Welcome ' + fullname);
+            $('#name').html(fullname);
+            //location.reload();
+            toastr.success('Your profile updated successfully.');
+
+        });
+
+        $('#placeholder').click(function () {
+            $('#licence').trigger('click');
+        });
+
+        function previewFile() {
+            debugger;
+            var preview = $('#placeholder')[0];
+            var file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

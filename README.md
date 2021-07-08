@@ -21,6 +21,7 @@ Setting up project
 6. run command -> npm install mongodb
 7. run command -> npm install method-override
 8. run command -> npm install -g nodemon
+9. run command -> npm install ejs (if ejs not working without installing)
 
 
 To Run the project
