@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styleVehicle.css">
+</head>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+
+    <link rel="stylesheet" href="styleVehicle.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a class="navbar-brand mr-4 nav-item nav-link" href="index.html">
+                <img src="images/logo1.jpg" alt="DriveSmart" width="120" height="90">
+            </a>
+            <!-- <img src="images/Drive Smart Logo.png"> -->
+        </div>
+        <div class="right"> 
+
+            <h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
+            <br>
+            <ul>
+                <li>
+                    <a href="#">Book a Vehicle</a>
+                    <ul>
+                        <li><a class="nav-link" href="car.html">Car</a></li>
+
+                        <li><a class="nav-link" href="suv.html">SUV</a></li>
+                        <li><a class="nav-link" href="van.html">Van</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="booking_form.html">Manage Booking</a>
+
+                </li>
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="Contactus.html">Contact Us</a></li>
+                <li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
+                <li><a href="SignIn.html">SIGN IN / JOIN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section id="mainG">
+        <div class="flex-containerG"></div>
+        <div id="img-divG">
+            <img src="images/cleaning1.png" id="imageG" alt="">
+        </div>
+        <div class="textG">
+            <h2 id="titleG">Enhancing Customer's Safety </h2>
+            <lu>
+                <li>As health and safety measures, all our rental vehicles are cleaned 
+                    and sanitized before your pick-up.</li>
+                <li>Each vehicle is provided with disinfectant wipes and 2 pieces of disposable masks.</li>
+            </lu>
+            <button data-modal-target="#modal" class="open-button">Please read the Terms and Conditions before booking</button>
+        </div>
+    </section>
+
+
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Terms and Conditions</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <lu>
+                <li>A valid driver's license is required at the time of booking.</li>
+                <li>We only accept major credit card for online payment.</li>
+                <li>Rate excludes Taxes and surcharges.</li>
+                <li>Rate does not include: Fuel, GPS, and carseat</li>
+                <li>Travel is limited within Canada only.</li>
+                <li>A new booking is required if you have to extend your rental.</li><li>A valid driver's license is required at the time of booking.</li>
+                <li>We only accept major credit card for online payment.</li>
+                <li>Rate includes government taxes.</li>
+                <li>Rate does not include: Fuel, GPS, and carseat</li>
+                <li>Travel is limited within Canada only.</li>
+                <li>A new booking is required if you have to extend your rental.</li>
+            </lu>
+            <br>
+            <p>CAR RENTAL AGREEMENT <br>
+                This agreement is hereby made between {Renter Name} (hereafter referred to as "the Renter") and {Owner Name} (hereafter referred to as "the Owner").
+                
+                The Owner hereby agrees to rent the following vehicle to the Renter:
+                
+                {Car Make, Model, Year, Color, License Plate #, VIN #}
+                
+                The Renter will rent the car from {date}  to {date}.
+                
+                The Renter agrees to pay a fee of and other surcharges and fees.
+                
+                The Renter agrees to return the vehicle in its current condition (minus normal road wear-and-tear) to the Owner on the return date and hour, with {fuel expectation}. The Renter is also free to turn the vehicle in at {other locations}.
+                
+                The Renter understands that the vehicle is for use only in Canada and cannot be taken {other locations}.
+                
+                The Renter swears and attests that {he/she} has a legal, valid license to drive this type of vehicle in this {state/country}, and that there are no outstanding warrants against said license. The Renter's driver's license is: {driver's license number}. The Renter further swears and attests that {he/she} has insurance that will cover the operation of this vehicle.
+                
+                The Renter agrees not to allow any other person to drive the vehicle, except for authorized drivers listed and approved here. {Other Driver's Name}: {other driver's license number}.
+                
+                The Renter agrees to use the vehicle only for routine, legal purposes (personal or business). The Renter further agrees to follow all city, state, county, and government rules and restrictions regarding use and operation of the vehicle.
+                
+                The Renter agrees to hold harmless, indemnify, and release the Owner for any damages, injuries, property loss, or death caused while the Renter operates this vehicle. The Renter will be held accountable for any damages or cleaning fees incurred while renting the vehicle. The Renter has had the opportunity to inspect the vehicle before the renting term begins and confirms that it is in good operable condition.
+                
+                The Owner swears and attests that the vehicle is in good working order and has no liens or encumbrances.</p>
+            </lu>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <div class="container">
+        <div class="container2">
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/van-hondaOdyssy.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Honda Odyssy</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$80/day, $400/week, $1400/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>8</span></div> <br>
+                        Fleet-footed, efficient, and polished, the Odyssey's powertrain is a sweetheart that requires
+                        zero compromises. The Odyssey changes direction crisply, and from behind the wheel it's easy to
+                        forget you're piloting a three-row van.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="img">
+                    <img src="images/van -ford2020.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Ford Transit</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$78/day, $400/week, $1400/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>8</span></div> <br>
+                        The van gets a new and improved powertrain lineup, and it also adds standard driver-assistance
+                        features such as forward-collision warning and automated emergency braking. The 2020 Transit
+                        also benefits from interior updates such as new grab handles and vents.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/van-chevrolet2021.png">
+                </div>
+                <div class="top-text">
+                    <div class="name">Chevy Express Van</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$95/day, $450/week, $1600/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>12</span></div> <br>
+                        Whatever your business needs may be, Express vans are ready to work. Express Cargo offers a
+                        variety of equipment packages that give you plenty of room for all your gear.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/van-gmc2020.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">GMC Savana</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$95/day, $450/week, $1600/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>12</span></div> <br>
+                        The 2020 GMC Savana Cargo is a full-size cargo van with two seats up front and all cargo space
+                        in the back. It's available in two load ratings: 2500 and 3500. Each can be ordered in a
+                        standard-wheelbase configuration or an extended-wheelbase configuration that provides more cargo
+                        space.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <img src="images/logo1.jpg">
+            <h3>About<span>DriveSmart</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Blog</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">© 2021 Drive Smart </p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>123 Dundas StBrantford
+                    </span>
+                    Toronto,ON N3R 1S6,Canada</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 123-256-7890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                We offer renting service.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="scripts/booking.js"></script>
+    <script>
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+        })
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
+        })
+
+        function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
+
+        }
+
+        function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+        }
+
+
+        $(document).ready(function () {
+            debugger;
+
+            var fullname = sessionStorage.getItem('fullname');
+
+            if (fullname != undefined && fullname != "" && fullname != null) {
+                $('#welcome_msg').html('Welcome ' + fullname);
+                $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
+                $('#li_myprofile').css('display', '');
+            }
+
+            $('.booking').on('click', function () {
+                var carname = $(this).parent().siblings().children('.name').text();
+                var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
+                var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
+                var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
+                var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
+                var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
+                sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
+            })
+        });
+
+
+        function Logout() {
+            sessionStorage.removeItem('email')
+            sessionStorage.removeItem('fullname')
+            window.location.replace("logout.html");
+        }
+
+    </script>
+
+
+</body>
+
+</script>
+</body>
+
+</html>

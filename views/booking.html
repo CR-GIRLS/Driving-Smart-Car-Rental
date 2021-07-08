@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Drive Smart Car Booking Form</title>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery-gallery.css">
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<link type="text/css" rel="stylesheet" href="css/styles.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+	<link rel="stylesheet" href="css/footer.css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<nav>
+
+		<div class="logo">
+			<a class="navbar-brand mr-4 nav-item nav-link" href="index.html">
+				<img src="images/logo1.jpg" alt=" DriveSmart" width="120" height="90">
+			</a>
+		</div>
+
+		<div class="right">
+			<h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
+			<br>
+			<ul>
+				<li>
+					<a href="#">Book a Vehicle</a>
+					<ul>
+						<li><a class="nav-link" href="car.html">Car</a></li>
+						<li><a class="nav-link" href="suv.html">SUV</a></li>
+						<li><a class="nav-link" href="van.html">Van</a></li>
+					</ul>
+
+				</li>
+				<li>
+					<a href="booking_form.html">Manage Bookings</a>
+				</li>
+				<li><a href="Aboutus.html">About Us</a></li>
+				<li><a href="Contactus.html">Contact Us</a></li>
+				<li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
+				<li><a href="SignIn.html">SIGN IN / JOIN</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row terms">
+					<span class="term">Pick-up and drop-off timings are 10AM, more than one hour delay on drop-off may
+						cause 1 day extra charge. </span>
+
+				</div>
+				<div class="row">
+					<div class="booking-form">
+						<form>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<span class="form-label" style="font-size: large;" id="car_name">Car Name</span>
+
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<span class="form-label">Full Name</span>
+										<input class="form-control" type="text" placeholder="Full name" id="fullname"
+											required>
+										<span class="text-red"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Pick-up</span>
+										<input class="form-control date_picker" type="date" id="pickup_date" required>
+										<span class="text-red"></span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Drop-off</span>
+										<input class="form-control date_picker" type="date" id="dropoff_date" required>
+										<span class="text-red"></span>
+									</div>
+								</div>
+							</div>
+
+							<div id="dif">
+
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<div class="form-group">
+										<span class="form-label" id="total_cost"
+											style="text-transform: none;font-size: large;">Total Cost : $0.00</span>
+										<!-- <input class="form-control date_picker" type="text" id="total_cost" readonly required> -->
+									</div>
+								</div>
+							</div>
+							<!-- <div class="form-group" x-data="{ fileName: '' }">
+								<div class="input-group shadow">
+								  <span class="input-group-text px-3 text-muted"><i class="fa fa-image fa-lg"></i></span>
+								  <input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
+								  <input type="text" class="form-control form-control-lg" placeholder="Upload Image" x-model="fileName">
+								  <button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fas fa-image"></i> Upload</button>
+								</div>
+							  </div> -->
+							<div class="row">
+								<div class="col-md-3 ">
+									<div class="form-group">
+										<span class="form-label">Upload Driving License</span>
+										<label class="file upload">
+											<span><i class="fa fa-image"></i></span>
+											<input type="file" id="file" aria-label="File browser example" required>
+											<span class="file-custom"></span>
+											<span class="text-red"></span>
+										</label>
+									</div>
+								</div>
+								<div class="col-md-3">
+
+								</div>
+								<div class="col-md-6">
+									<div class="form-group conditions">
+										<form action="#"
+											onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
+
+											<input type="checkbox" name="checkbox" value="check" id="agree" /> I have
+											read and agree to the Terms and Conditions and Privacy Policy
+											<span class="text-red"></span>
+
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-md-3">
+									<!-- <button class="btn"  >Get Quote</button>
+                                    <p id="diff"></p> -->
+								</div>
+								<div class="col-md-3">
+									<div class="form-btn">
+										<input type="submit" class="submit-btn book" value="Confirm Booking" />
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="form-btn">
+										<button class="submit submit-btn cancel">Cancel Booking</button>
+									</div>
+
+								</div>
+								<div class="col-md-3"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer-distributed">
+
+		<div class="footer-left">
+			<img src="images/logo1.jpg">
+			<h3>About<span>DriveSmart</span></h3>
+
+			<p class="footer-links">
+				<a href="#">Home</a>
+				|
+				<a href="#">Blog</a>
+				|
+				<a href="#">About</a>
+				|
+				<a href="#">Contact</a>
+			</p>
+
+			<p class="footer-company-name">© 2021 Drive Smart </p>
+		</div>
+
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p><span>123 Dundas StBrantford
+					</span>
+					Toronto,ON N3R 1S6,Canada</p>
+			</div>
+
+			<div>
+				<i class="fa fa-phone"></i>
+				<p>+1 123-256-7890</p>
+			</div>
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
+			</div>
+		</div>
+		<div class="footer-right">
+			<p class="footer-company-about">
+				<span>About the company</span>
+				We offer renting service.
+			</p>
+			<div class="footer-icons">
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-linkedin"></i></a>
+				<a href="#"><i class="fa fa-youtube"></i></a>
+			</div>
+		</div>
+	</footer>
+	<script src="scripts/booking.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
+		</script>
+	<script>
+		var fullname = sessionStorage.getItem('fullname');
+
+		if (fullname != undefined && fullname != "" && fullname != null) {
+			$('#welcome_msg').html('Welcome ' + fullname);
+			$('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
+		}
+
+		function Logout() {
+			sessionStorage.removeItem('email')
+			sessionStorage.removeItem('fullname')
+			window.location.replace("logout.html");
+		}
+	</script>
+	<script>
+		$(document).ready(function () {
+			car_data = JSON.parse(sessionStorage.getItem("current_booking_cardata"));
+			//booked_car_data = JSON.parse(sessionStorage.getItem("booked_cardata"));
+			var x = car_data["carname"];
+
+			var cost, final, rate;
+			document.getElementById('car_name').innerHTML = x;
+			$('.cancel').on('click', function () {
+				window.location.replace("index.html");
+			});
+
+
+			$('.book').on('click', function () {
+				debugger;
+
+				var rand = Math.floor((Math.random() * 10000000) + 1000000);
+				var bookingref = Math.random().toString(36).substring(7);
+				var fullName = $('#fullname').val();
+				var carName = car_data["carname"];
+				var carImage = car_data["carImage"];
+				var finalCost = cost;
+				var pickupDate = $('#pickup_date').val();
+				var dropoffDate = $('#dropoff_date').val();
+				var license = document.getElementById('file').files[0];
+				var isValid = true;
+				if (fullName == undefined || fullName == null || fullName == "") {
+					$('#fullname').next().text("Please enter full name!");
+					isValid = false;
+
+				}
+				else {
+					$('#fullname').next().text("");
+				}
+				if (pickupDate == undefined || pickupDate == null || pickupDate == "") {
+					$('#pickup_date').next().text("Please select pickup date!");
+					isValid = false;
+
+				}
+				else {
+					$('#pickup_date').next().text("");
+				}
+				if (dropoffDate == undefined || dropoffDate == null || dropoffDate == "") {
+					$('#dropoff_date').next().text("Please select drop-off date!");
+					isValid = false;
+
+				}
+				else {
+					$('#dropoff_date').next().text("");
+				}
+
+
+
+
+
+
+				if (license == undefined || license == null || license == "") {
+
+					$('#file').next().next().text("Please upload driving license");
+					isValid = false;
+
+				}
+				else {
+					$('#file').next().next().text("");
+				}
+
+				if ($('input[type=checkbox]:checked').length == 0) {
+					$('#agree').next().text('Agree to the terms and conditions.');
+					isValid = false;
+				}
+
+				else {
+					$('#checkbox_error').text('');
+				}
+				if (isValid) {
+					var booked_car_data = { bookingref: bookingref, fullName: fullName, carName: carName, finalCost: finalCost, pickupDate: pickupDate, dropoffDate: dropoffDate, license: license, carImage: carImage };
+					sessionStorage.setItem('booked_cardata', JSON.stringify(booked_car_data));
+					window.location.replace("booking_form.html");
+
+				}
+			});
+
+
+
+			$('.date_picker').on('change', function () {
+				pickup = $('#pickup_date').val();
+				dropoff = $('#dropoff_date').val();
+				if (pickup != undefined && pickup != null && pickup != "" && dropoff != undefined && dropoff != null && dropoff != "") {
+
+					pickup_date = new Date(pickup);
+					dropoff_date = new Date(dropoff);
+					if (pickup_date < dropoff_date) {
+
+						t1 = pickup_date.getTime();
+						t2 = dropoff_date.getTime();
+						var diff1 = Math.abs(t2 - t1);
+						var millisecondsInADay = (1000 * 3600 * 24);
+						var diffindays = diff1 / millisecondsInADay;
+						var week_quot = 0;
+						var week_rem = 0;
+						var rem;
+
+						var week = 7;
+
+
+						if (diffindays < 7) {
+
+
+							rate = car_data["dailyrate"] * diffindays;
+						}
+						else if (diffindays < 30) {
+
+
+							diff = Math.floor(diffindays / week);
+							rem = diffindays % week;
+							rate = (car_data["weeklyrate"] * diff) + (rem * car_data["dailyrate"]);
+
+						}
+						else {
+							diff = Math.floor(diffindays / 30);
+							rem_month = diffindays % 30;
+							if (rem_month > 7) {
+								week_quot = Math.floor(rem_month / 7);
+								week_rem = rem_month % week;
+
+							}
+
+
+							else {
+
+								week_rem = rem_month % week;
+							}
+
+							rate = (car_data["monthlyrate"] * diff) + (car_data["weeklyrate"] * week_quot) + (week_rem * car_data["dailyrate"]);
+
+
+						}
+						cost = (rate).toFixed(2);
+						final = "Total Cost : $" + cost;
+						document.getElementById('total_cost').innerHTML = final;
+
+					}
+					else {
+						alert("Please select a valid drop-off date!!");
+					}
+
+				}
+
+
+			});
+
+		});
+
+
+
+
+		$(document).ready(function () {
+			debugger;
+
+			var fullname = sessionStorage.getItem('fullname');
+
+			if (fullname != undefined && fullname != "" && fullname != null) {
+				$('#welcome_msg').html('Welcome ' + fullname);
+				$('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
+				$('#li_myprofile').css('display', '');
+			}
+
+			$('.booking').on('click', function () {
+				var carname = $(this).parent().siblings().children('.name').text();
+				var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
+				var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
+				var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
+				var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
+				var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
+				sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
+			})
+		});
+
+
+		function Logout() {
+			sessionStorage.removeItem('email')
+			sessionStorage.removeItem('fullname')
+			window.location.replace("logout.html");
+		}
+
+	</script>
+	});
+	</script>
+
+
+
+</body>
+
+</html>
