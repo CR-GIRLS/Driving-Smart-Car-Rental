@@ -35,7 +35,7 @@
 	<nav>
 
 		<div class="logo">
-			<a class="navbar-brand mr-4 nav-item nav-link" href="index.html">
+			<a class="navbar-brand mr-4 nav-item nav-link" href="/index">
 				<img src="images/logo1.jpg" alt=" DriveSmart" width="120" height="90">
 			</a>
 		</div>
@@ -47,19 +47,19 @@
 				<li>
 					<a href="#">Book a Vehicle</a>
 					<ul>
-						<li><a class="nav-link" href="car.html">Car</a></li>
-						<li><a class="nav-link" href="suv.html">SUV</a></li>
-						<li><a class="nav-link" href="van.html">Van</a></li>
+						<li><a class="nav-link" href="/car">Car</a></li>
+						<li><a class="nav-link" href="/suv">SUV</a></li>
+						<li><a class="nav-link" href="/van">Van</a></li>
 					</ul>
 
 				</li>
 				<li>
-					<a href="booking_form.html">Manage Bookings</a>
+					<a href="/bookingform">Manage Bookings</a>
 				</li>
-				<li><a href="Aboutus.html">About Us</a></li>
-				<li><a href="Contactus.html">Contact Us</a></li>
+				<li><a href="/aboutus">About Us</a></li>
+				<li><a href="/contactus">Contact Us</a></li>
 				<li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
-				<li><a href="SignIn.html">SIGN IN / JOIN</a></li>
+				<li><a href="/signin">SIGN IN / JOIN</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -234,7 +234,7 @@
 			</div>
 		</div>
 	</footer>
-	<script src="scripts/booking.js"></script>
+	<script src="js/booking.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
 		</script>
@@ -261,7 +261,7 @@
 			var cost, final, rate;
 			document.getElementById('car_name').innerHTML = x;
 			$('.cancel').on('click', function () {
-				window.location.replace("index.html");
+				window.location.replace("/index");
 			});
 
 
@@ -329,7 +329,7 @@
 				if (isValid) {
 					var booked_car_data = { bookingref: bookingref, fullName: fullName, carName: carName, finalCost: finalCost, pickupDate: pickupDate, dropoffDate: dropoffDate, license: license, carImage: carImage };
 					sessionStorage.setItem('booked_cardata', JSON.stringify(booked_car_data));
-					window.location.replace("booking_form.html");
+					window.location.replace("/bookingform");
 
 				}
 			});
