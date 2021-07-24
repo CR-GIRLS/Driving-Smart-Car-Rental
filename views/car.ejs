@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styleVehicle.css">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a class="navbar-brand mr-4 nav-item nav-link" href="/index">
+                <img src="images/logo1.jpg" alt=" DriveSmart" width="120" height="90">
+            </a>
+        </div>
+        <div class="right">
+            <h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
+            <br>
+            <ul>
+                <li>
+                    <a href="#">Book a Vehicle</a>
+                    <ul>
+                        <li><a class="nav-link" href="/car">Car</a></li>
+
+                        <li><a class="nav-link" href="/suv">SUV</a></li>
+                        <li><a class="nav-link" href="/van">Van</a></li>
+
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="/bookingform">Manage Booking</a>
+
+                </li>
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="/contactus">Contact Us</a></li>
+                <li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
+                <li><a href="/signin">SIGN IN / JOIN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="mainG">
+        <div class="flex-containerG"></div>
+        <div id="img-divG">
+            <img src="images/cleaning1.png" id="imageG" alt="">
+        </div>
+        <div class="textG">
+            <h2 id="titleG">Enhancing Customer's Safety </h2>
+            <lu>
+
+                <li>As health and safety measures, all our rental vehicles are cleaned <br>
+                    and sanitized before your pick-up.</li>
+                <li>Each vehicle is provided with disinfectant wipes and 2 pieces of disposable masks.</li>
+            </lu>
+            <button data-modal-target="#modal" class="open-button">Please read the Terms and Conditions before
+                booking</button>
+        </div>
+    </section>
+
+
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Terms and Conditions</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <lu>
+                <li>A valid driver's license is required at the time of booking.</li>
+                <li>We only accept major credit card for online payment.</li>
+                <li>Rate includes government taxes.</li>
+                <li>Rate does not include: Fuel, GPS, and carseat</li>
+                <li>Travel is limited within Canada only.</li>
+                <li>A new booking is required if you have to extend your rental.</li>
+            </lu>
+            <br>
+            <p>CAR RENTAL AGREEMENT <br>
+                This agreement is hereby made between {Renter Name} (hereafter referred to as "the Renter") and {Owner
+                Name} (hereafter referred to as "the Owner").
+
+                The Owner hereby agrees to rent the following vehicle to the Renter:
+
+                {Car Make, Model, Year, Color, License Plate #, VIN #}
+
+                The Renter will rent the car from {date} to {date}.
+
+                The Renter agrees to pay a fee of and other surcharges and fees.
+
+                The Renter agrees to return the vehicle in its current condition (minus normal road wear-and-tear) to
+                the Owner on the return date and hour, with {fuel expectation}. The Renter is also free to turn the
+                vehicle in at {other locations}.
+
+                The Renter understands that the vehicle is for use only in Canada and cannot be taken {other locations}.
+
+                The Renter swears and attests that {he/she} has a legal, valid license to drive this type of vehicle in
+                this {state/country}, and that there are no outstanding warrants against said license. The Renter's
+                driver's license is: {driver's license number}. The Renter further swears and attests that {he/she} has
+                insurance that will cover the operation of this vehicle.
+
+                The Renter agrees not to allow any other person to drive the vehicle, except for authorized drivers
+                listed and approved here. {Other Driver's Name}: {other driver's license number}.
+
+                The Renter agrees to use the vehicle only for routine, legal purposes (personal or business). The Renter
+                further agrees to follow all city, state, county, and government rules and restrictions regarding use
+                and operation of the vehicle.
+
+                The Renter agrees to hold harmless, indemnify, and release the Owner for any damages, injuries, property
+                loss, or death caused while the Renter operates this vehicle. The Renter will be held accountable for
+                any damages or cleaning fees incurred while renting the vehicle. The Renter has had the opportunity to
+                inspect the vehicle before the renting term begins and confirms that it is in good operable condition.
+
+                The Owner swears and attests that the vehicle is in good working order and has no liens or encumbrances.
+            </p>
+        </div>
+    </div>
+    <div id="overlay"></div>
+
+    <div class="container">
+        <div class="container2">
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-chevrolet.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Chevrolet Cruze</div>
+                    <p>2019</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$50/day, $320/week, $1000/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        153-horsepower four-cylinder engine, remote keyless entry, Teen Driver, a rearview camera, and
+                        the Chevrolet MyLink infotainment system with two USB ports, Bluetooth, a four-speaker stereo,
+                        Apple CarPlay, Android Auto, and a Wi-Fi hot spot.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/hyundai.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Hyundai Accent</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$50/day, $320/week, $1000/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        5 DOORS in Beautiful SILKY BLUE! Options include: Regular Unleaded I-4 1.6 L/97 CVT. Standard
+                        features include: Back-Up Camera, Tire Specific Low Tire Pressure Warning.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/mercedez.png">
+                </div>
+                <div class="top-text">
+                    <div class="name">Mercedes Benz C63</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$65/day, $380/week, $1300/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        Hand-built, twin-turbo 4.0-liter V-8 engine. In the C63, it makes 469 horsepower and 479 lb-ft
+                        of torque. The C63 S ups the performance ante with 503 horsepower and 516 lb-ft. Both engines
+                        use a nine-speed automatic with rear-wheel drive.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-kia.jpg">
+                </div>
+
+                <div class="top-text">
+                    <div class="name">Kia Rio</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$45/day, $320/week, $1000/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        Whether you’re running around town at low speeds or hitting the open road, the fuel-sipping IVT
+                        equipped Rio 5-door will get you up to 100 kilometres on as little as 6.6 litres of fuel, and
+                        that should keep you smiling.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container2">
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-nissan.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Nissan Altima</div>
+                    <p>2019</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$58/day, $335/week, $1100/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        The 2019 Nissan Altima interior has ample passenger space and extensive contemporary features.
+                        The lengthy list of driver-assist technologies includes standard automated emergency braking,
+                        optional lane-keeping assist, and more.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-ford.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Ford Fusion</div>
+                    <p>2020</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$55/day, $330/week, $1020/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        It comes with a turbocharged 1.5-liter four-cylinder engine. Other notable features include the
+                        Sync 3 infotainment system, Ford's Co-Pilot360 driver-safety package, and heated front seats.
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-bmw.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">BMW 6 Series</div>
+                    <p>2019</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$65/day, $380/week, $1300/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        Engine: 4.4L 32V V8 w/TwinPower Turbo -inc: Combines 2 turbochargers w/variable valve control
+                        (Double-VANOS and Valvetronic) and high-precision direct injection
+                        Transmission: 8-Speed Sport Automatic -inc: automatic sport and manual shift modes
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <div class="img">
+                    <img src="images/car-honda.jpg">
+                </div>
+                <div class="top-text">
+                    <div class="name">Honda Civic</div>
+                    <p>2019</p>
+                </div>
+                <div class="bottom-text">
+                    <div class="text">
+                        <div><span class="icon ion-md-pricetags"> : </span><span>$55/day, $325/week, $1000/month</span>
+                        </div>
+                        <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
+                        <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
+                        With Wheelbase (in.): 106.3. Width, Max w/o mirrors (in.): 70.9, Length, Overall (in.): 182.7 ,
+                        Height, Overall (in.): 55.7. Some interior features include: Alarm
+                        Back-Up Camera, Cruise Control, Adaptive Cruise Control, Vehicle Anti-Theft System, Auto-Off
+                        Headlights
+
+                    </div>
+                    <div class="btn booking">
+                        <a href="#">Book</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+        crossorigin="anonymous"></script>
+    <script src="js/booking.js"></script>
+    <script>
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget)
+                openModal(modal)
+            })
+        })
+
+        overlay.addEventListener('click', () => {
+            const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+                closeModal(modal)
+            })
+        })
+
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal')
+                closeModal(modal)
+            })
+        })
+
+        function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active')
+            overlay.classList.add('active')
+
+        }
+
+        function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active')
+            overlay.classList.remove('active')
+        }
+
+
+        $(document).ready(function () {
+
+
+
+            var fullname = sessionStorage.getItem('fullname');
+
+            if (fullname != undefined && fullname != "" && fullname != null) {
+                $('#welcome_msg').html('Welcome ' + fullname);
+                $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>');
+                $('#li_myprofile').css('display', '');
+            }
+
+            $('.booking').on('click', function () {
+                var carname = $(this).parent().siblings().children('.name').text();
+                var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
+                var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
+                var weeklyrate = rate[1].slice(1, rate[1].indexOf('/'));
+                var carImage = $(this).parent().siblings('div.img').find('img').attr('src');
+                var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'));
+                var car_data = { carname: carname, dailyrate: dailyrate, weeklyrate: weeklyrate, monthlyrate: monthlyrate, carImage: carImage }
+                sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
+            });
+        });
+
+
+        function Logout() {
+            sessionStorage.removeItem('email')
+            sessionStorage.removeItem('fullname')
+            window.location.replace("logout.html");
+        }
+
+    </script>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+            <img src="images/logo1.jpg">
+            <h3>About<span>DriveSmart</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Blog</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">© 2021 Drive Smart </p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>123 Dundas StBrantford
+                    </span>
+                    Toronto,ON N3R 1S6,Canada</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+1 123-256-7890</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                We offer renting service.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
