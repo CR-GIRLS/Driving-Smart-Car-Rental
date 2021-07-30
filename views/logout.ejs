@@ -1,0 +1,89 @@
+<%- include('header',{title: 'Login' ,styles:'signin', bodyClass:'logout' }) %>
+    <div class="container">
+        <div class="center">
+            <h4 class="announcement">You have been logged out!!</h4>
+        </div>
+    </div>
+    <script>
+        var login_data = [{ firstname: "Jane", lastname: "Headen", email: "jane@mail.com", password: "Jane123" },
+        { firstname: "Mary", lastname: "Smith", email: "mary@mail.com", password: "Mary123" },
+        { firstname: "Adam", lastname: "Johnson", email: "adam@mail.com", password: "Adam123" },
+        { firstname: "Tom", lastname: "Edison", email: "tom@mail.com", password: "Tom123" },
+        { firstname: "Susan", lastname: "Potter", email: "susan@mail.com", password: "Susan123" },
+        { firstname: "Lily", lastname: "Patt", email: "lily@mail.com", password: "Lily123" },
+        ];
+
+        if (sessionStorage.getItem('login_data') == null || sessionStorage.getItem('login_data') == undefined) {
+            sessionStorage.setItem('login_data', JSON.stringify(login_data))
+        }
+
+        $("#login_btn").on("click", function () {
+            event.preventDefault();
+            $("#email").css('border-color', 'black');
+            $("#password").css('border-color', 'black');
+            $("#email_msg").html('');
+            $("#password_msg").html('');
+            $('#login_error_msg').html('')
+
+            email = $("#email").val();
+            password = $("#password").val();
+            var isValid = true
+
+            if (email == "" || email == undefined) {
+                $("#email").css('border-color', 'red');
+                $("#email_msg").html('Please enter email!!');
+                isValid = false
+            }
+
+            if (password == "" || password == undefined) {
+                $("#password").css('border-color', 'red');
+                $("#password_msg").html('Please enter password!!');
+                isValid = false
+            }
+
+            if (isValid) {
+                isValid = false;
+                login_data = JSON.parse(sessionStorage.getItem('login_data'));
+                var i;
+                for (i = 0; i < login_data.length; i++) {
+                    if (login_data[i].email == email) {
+                        if (login_data[i].password == password) {
+                            isValid = true;
+                            break;
+                        }
+                        else {
+
+                            isValid = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (isValid) {
+                    sessionStorage.setItem('email', login_data[i].email)
+                    sessionStorage.setItem('fullname', login_data[i].firstname + " " + login_data[i].lastname)
+                    window.location.replace("/index");
+                }
+                else {
+                    $('#login_error_msg').html('Invalid Username or Password!!')
+                }
+
+            }
+
+
+        });
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    </body>
+
+    </html>

@@ -14,7 +14,8 @@ var vehicleSchema = new mongoose.Schema(
         Main_features:{type:String},
         Seating_capacity:{type:Number},
         Transmission:{type:String},
-        OnOffer:{type:Boolean}
+        OnOffer:{type:Boolean},
+        Img_path:{type:String}
     }
 );
 mongoose.model('vehicle',vehicleSchema);

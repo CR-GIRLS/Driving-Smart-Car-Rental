@@ -619,6 +619,7 @@ h4 {
 }
 
 .textbanner {
+  font-size: xx-large;
   animation-name: colorchange;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -641,3 +642,5 @@ text-red {
   padding: 1rem 2rem;
   background-color: #fff;
 }
+
+

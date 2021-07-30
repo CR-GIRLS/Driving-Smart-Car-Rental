@@ -22,6 +22,9 @@ Setting up project
 7. run command -> npm install method-override
 8. run command -> npm install -g nodemon
 9. run command -> npm install ejs (if ejs not working without installing)
+10. run command -> npm install mongoose
+11. run command -> npm install express-session
+12. run command -> npm install --save express-validator
 
 
 To Run the project

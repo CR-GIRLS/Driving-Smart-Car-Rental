@@ -1,0 +1,152 @@
+<%- include('header',{title: 'My Profile' ,styles:'profile' }) %>
+    <div>
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-xl-12 col-md-12">
+                        <div class="card user-card-full">
+                            <div class="row m-l-0 m-r-0">
+                                <div class="col-sm-4 bg-c-lite-green user-profile">
+                                    <div class="card-block text-center text-white">
+                                        <div class="m-b-25"> <img
+                                                src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                                class="img-radius" alt="User-Profile-Image"> </div>
+                                        <h6 class="f-w-600" id="name"></h6>
+                                        <p>Web Designer</p> <i
+                                            class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <form action="/myprofile/update?_method=PUT" method="POST">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <p class="m-b-10 f-w-600">First Name</p>
+                                                        <input type="hidden" name="_id" id="_id"
+                                                            value="<%= editUser._id %>">
+                                                        <input class="form-control" type="text" placeholder="First Name"
+                                                            id="Firstname" name="Firstname"
+                                                            value="<%= editUser.Firstname %>" required autofocus>
+                                                        <span class="text-red"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Last Name</p>
+                                                    <input class="form-control" type="text" placeholder="Last Name"
+                                                        id="Lastname" name="Lastname" value="<%= editUser.Lastname %>"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <p class="m-b-10 f-w-600">Email</p>
+                                                        <input class="form-control" type="text" placeholder="Email"
+                                                            id="Email" name="Email" value="<%= editUser.Email %>"
+                                                            disabled required>
+                                                        <span class="text-red"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Birthdate</p>
+                                                    <input class="form-control" type="text" placeholder="Birthdate"
+                                                        id="Birthdate" name="Birthdate"
+                                                        value="<%= editUser.Birthdate %>" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <p class="m-b-10 f-w-600">Address</p>
+                                                        <input class="form-control" type="text" placeholder="Address"
+                                                            id="Address" name="Address" value="<%= editUser.Address %>"
+                                                            required>
+                                                        <span class="text-red"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <p class="m-b-10 f-w-600">Phone</p>
+                                                    <input class="form-control" type="text" placeholder="Phone"
+                                                        id="Phone_number" name="Phone_number"
+                                                        value="<%= editUser.Phone_number %>" required>
+                                                </div>
+                                            </div>
+                                            <!-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Licences</h6> -->
+                                            <!-- <div class="row">
+                                            <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Driving Licence</p>
+                                                <img width="150" height="150" id="placeholder"
+                                                    src="http://placehold.it/150x150&text='click to upload'">
+                                                <input type="file" class="form-control-file hidden" id="licence"
+                                                    onchange="previewFile()">
+                                            </div>
+
+                                        </div> -->
+                                            <br>
+                                            <h6></h6>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <input class="btn btn-info" type="submit" id="profile_update"
+                                                        value="Update">
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('footer') %>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+        <script>
+
+
+            // $("#profile_update").click(function (event) {
+            //     var firstname = $('#fname').val();
+            //     var lastname = $('#lname').val();
+            //     var phone = $('#phone').val();
+            //     var fullname = firstname + " " + lastname;
+
+            //     sessionStorage.setItem('fullname', fullname);
+            //     sessionStorage.setItem('phone', phone);
+            //     $('#welcome_msg').html('Welcome ' + fullname);
+            //     $('#name').html(fullname);
+            //     //location.reload();
+            //     toastr.success('Your profile updated successfully.');
+            //     return true;
+
+            // });
+
+            $('#placeholder').click(function () {
+                $('#licence').trigger('click');
+            });
+
+            function previewFile() {
+                debugger;
+                var preview = $('#placeholder')[0];
+                var file = document.querySelector('input[type=file]').files[0];
+                var reader = new FileReader();
+
+                reader.addEventListener("load", function () {
+                    preview.src = reader.result;
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+
+
+        </body>
+
+        </html>
