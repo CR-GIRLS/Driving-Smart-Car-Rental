@@ -1,61 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUV</title>
-
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/styleVehicle.css">
-
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/footer.css">
-    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="css/footer.css">
-    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-
-<body>
-
-    <nav>
-        <div class="logo">
-            <a class="navbar-brand mr-4 nav-item nav-link" href="/index">
-
-                <img src="images/logo1.jpg" alt="DriveSmart" width="120" height="90">
-            </a>
-
-        </div>
-        <div class="right">
-            <h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
-            <br>
-            <ul>
-                <li>
-                    <a href="#">Book a Vehicle</a>
-                    <ul>
-                        <li><a class="nav-link" href="/car">Car</a></li>
-
-                        <li><a class="nav-link" href="/suv">SUV</a></li>
-                        <li><a class="nav-link" href="/van">Van</a></li>
-
-                    </ul>
-
-                </li>
-                <li>
-                    <a href="/bookingform">Manage Booking</a>
-
-                </li>
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="/contactus">Contact Us</a></li>
-                <li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
-                <li><a href="/signin">SIGN IN / JOIN</a></li>
-            </ul>
-        </div>
-    </nav>
+<%- include('header',{title: 'SUV' ,styles:'vehicle' }) %>
     <section id="mainG">
         <div class="flex-containerG"></div>
         <div id="img-divG">
@@ -75,407 +18,119 @@
     </section>
 
 
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">Terms and Conditions</div>
-            <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body">
-            <lu>
-                <li>A valid driver's license is required at the time of booking.</li>
-                <li>We only accept major credit card for online payment.</li>
-                <li>Rate includes government taxes.</li>
-                <li>Rate does not include: Fuel, GPS, and carseat</li>
-                <li>Travel is limited within Canada only.</li>
-                <li>A new booking is required if you have to extend your rental.</li>
-            </lu>
-            <br>
-            <p>CAR RENTAL AGREEMENT <br>
-                This agreement is hereby made between {Renter Name} (hereafter referred to as "the Renter") and {Owner
-                Name} (hereafter referred to as "the Owner").
+    <%- include('termsAndConditions') %>
+        <div id="overlay"></div>
 
-                The Owner hereby agrees to rent the following vehicle to the Renter:
-
-                {Car Make, Model, Year, Color, License Plate #, VIN #}
-
-                The Renter will rent the car from {date} to {date}.
-
-                The Renter agrees to pay a fee of and other surcharges and fees.
-
-                The Renter agrees to return the vehicle in its current condition (minus normal road wear-and-tear) to
-                the Owner on the return date and hour, with {fuel expectation}. The Renter is also free to turn the
-                vehicle in at {other locations}.
-
-                The Renter understands that the vehicle is for use only in Canada and cannot be taken {other locations}.
-
-                The Renter swears and attests that {he/she} has a legal, valid license to drive this type of vehicle in
-                this {state/country}, and that there are no outstanding warrants against said license. The Renter's
-                driver's license is: {driver's license number}. The Renter further swears and attests that {he/she} has
-                insurance that will cover the operation of this vehicle.
-
-                The Renter agrees not to allow any other person to drive the vehicle, except for authorized drivers
-                listed and approved here. {Other Driver's Name}: {other driver's license number}.
-
-                The Renter agrees to use the vehicle only for routine, legal purposes (personal or business). The Renter
-                further agrees to follow all city, state, county, and government rules and restrictions regarding use
-                and operation of the vehicle.
-
-                The Renter agrees to hold harmless, indemnify, and release the Owner for any damages, injuries, property
-                loss, or death caused while the Renter operates this vehicle. The Renter will be held accountable for
-                any damages or cleaning fees incurred while renting the vehicle. The Renter has had the opportunity to
-                inspect the vehicle before the renting term begins and confirms that it is in good operable condition.
-
-                The Owner swears and attests that the vehicle is in good working order and has no liens or encumbrances.
-            </p>
-            </lu>
-        </div>
-    </div>
-    <div id="overlay"></div>
-
-    <div>
-        <div class="container">
-            <div class="container2">
+        <div>
+            <div class="container">
 
 
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv -ford.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Ford Explorer</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$70/day, $370/week,
-                                    $1300/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Features large forward panel that tilts up or opens fully, plus a fixed rear skylight. So
-                            whether you’re sitting up front or in back, the Panoramic Vista Roof lets in the natural
-                            light.
+                <% for(var i=0;i<suvs.length;i++){ %>
+
+                    <% if(i%4==0) { %>
+
+                        <div class="container2">
+                            <% } %>
+
+                                <div class="card">
+                                    <div class="img">
+                                        <img src="<%= suvs[i].Img_path %>">
+                                    </div>
+                                    <div class="top-text">
+                                        <div class="name">
+                                            <%= suvs[i].Name %>
+                                        </div>
+                                        <p>
+                                            <%= suvs[i].Model %>
+                                        </p>
+                                    </div>
+                                    <div class="bottom-text">
+                                        <div class="text">
+                                            <div><span class="icon ion-md-pricetags"> : </span><span>$<%=
+                                                        suvs[i].Price_Daily %>/day,
+                                                        $<%= suvs[i].Price_Weekly %>/week,
+                                                            $<%= suvs[i].Price_Monthly %>/month</span>
+                                            </div>
+                                            <div><span class="icon ion-md-car"> : </span> <span>
+                                                    <%= suvs[i].Transmission %>
+                                                </span>
+                                            </div>
+                                            <div><span class="icon ion-md-people"> : </span> <span>
+                                                    <%= suvs[i].Seating_capacity %>
+                                                </span></div>
+                                            <br>
+                                            <%= suvs[i].Description %>
+                                        </div>
+                                        <div class="btn booking">
+                                            <a href="/book?id=<%= suvs[i]._id %>">Book</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% if(i%4==3) { %>
+
                         </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-bmw.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">BMW X7</div>
-                        <p>2021</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$75/day, $375/week,
-                                    $1400/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Gives impression of lightness and agility thanks to the puristic design and athletic
-                            styling. Interior offers a pioneering interplay of exclusivity, functionality and freedom –
-                            incomparable comfort all the way to the third row of seats.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-honda.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Honda CRV</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$58/day, $360/week,
-                                    $1150/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            184-horsepower engine discontinued, Comfortable ride, Great fuel economy, Handsome, roomy
-                            cabin. The 2020 Honda CR-V provides a comfortable ride and composed handling. Its
-                            turbocharged engine feels sufficiently powerful.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-infiniti.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Infiniti QX60</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$75/day, $375/week,
-                                    $1400/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Made to complement your drive, it delivers up to 295 horsepower while optimizing fuel
-                            economy. With other advanced features like Intelligent All-Wheel Drive, the QX60 goes
-                            wherever life takes you.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
+                        <% } %>
+                            <% } %>
 
             </div>
 
-            <div class="container2">
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-kia.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Kia Sportage</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$60/day, $360/week,
-                                    $1150/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>5</span></div> <br>
-                            the standard 2.4L GDI engine with 181 horsepower and the available 2.0L turbocharged engine.
-                            The turbo option gives you access to an exhilarating 237 horsepower and 260 lb-ft. of torque
-                            when you need get up and go.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-landRover.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Range Rover</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$75/day, $375/week,
-                                    $1400/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Equipped with Conﬁgurable Ambient Interior Lighting and MeridianSurround Sound System, the
-                            Range Rover Westminster Edition features a beautiful, well-equipped interior. Enhance the
-                            vehicle’s dynamic look with the available Black Exterior Pack.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-nisssan.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Nissan Rougue</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$60/day, $360/week,
-                                    $1150/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Rogue has underpinned Nissan's line of utility vehicles, serving as its most versatile
-                            compact model. Nissan refreshed the Rogue's styling in 2017, and expanded the availability
-                            of the ProPilot driver assist system last year.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="card">
-                    <div class="img">
-                        <img src="images/suv-mitsubishi.jpg">
-                    </div>
-                    <div class="top-text">
-                        <div class="name">Mitsubishi Outlander</div>
-                        <p>2020</p>
-                    </div>
-                    <div class="bottom-text">
-                        <div class="text">
-                            <div><span class="icon ion-md-pricetags"> : </span><span>$59/day, $360/week,
-                                    $1150/month</span></div>
-                            <div><span class="icon ion-md-car"> : </span> <span>Automatic</span></div>
-                            <div><span class="icon ion-md-people"> : </span> <span>7</span></div> <br>
-                            Unlock the potential for adventure with the Mitsubishi Outlander, customizable cargo space.
-                            Camp out under the stars, hit the highway to visit old friends, or cruise the city streets
-                            in style - there's room for wherever life takes you with up to 49.5 cu.ft of space11.
-                        </div>
-                        <div class="btn booking">
-                            <a href="#">Book</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-
         </div>
 
-    </div>
-    <footer class="footer-distributed">
+        <%- include('footer') %>
 
-        <div class="footer-left">
-            <img src="images/logo1.jpg">
-            <h3>About<span>DriveSmart</span></h3>
+            <script src="js/booking.js"></script>
+            <script>
+                const openModalButtons = document.querySelectorAll('[data-modal-target]')
+                const closeModalButtons = document.querySelectorAll('[data-close-button]')
+                const overlay = document.getElementById('overlay')
 
-            <p class="footer-links">
-                <a href="#">Home</a>
-                |
-                <a href="#">Blog</a>
-                |
-                <a href="#">About</a>
-                |
-                <a href="#">Contact</a>
-            </p>
+                openModalButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const modal = document.querySelector(button.dataset.modalTarget)
+                        openModal(modal)
+                    })
+                })
 
-            <p class="footer-company-name">© 2021 Drive Smart </p>
-        </div>
+                overlay.addEventListener('click', () => {
+                    const modals = document.querySelectorAll('.modal.active')
+                    modals.forEach(modal => {
+                        closeModal(modal)
+                    })
+                })
 
-        <div class="footer-center">
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>123 Dundas StBrantford
-                    </span>
-                    Toronto,ON N3R 1S6,Canada</p>
-            </div>
+                closeModalButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const modal = button.closest('.modal')
+                        closeModal(modal)
+                    })
+                })
 
-            <div>
-                <i class="fa fa-phone"></i>
-                <p>+1 123-256-7890</p>
-            </div>
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
-            </div>
-        </div>
-        <div class="footer-right">
-            <p class="footer-company-about">
-                <span>About the company</span>
-                We offer renting service.
-            </p>
-            <div class="footer-icons">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-                <a href="#"><i class="fa fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
+                function openModal(modal) {
+                    if (modal == null) return
+                    modal.classList.add('active')
+                    overlay.classList.add('active')
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-        crossorigin="anonymous"></script>
-    <script src="js/booking.js"></script>
-    <script>
-        const openModalButtons = document.querySelectorAll('[data-modal-target]')
-        const closeModalButtons = document.querySelectorAll('[data-close-button]')
-        const overlay = document.getElementById('overlay')
+                }
 
-        openModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = document.querySelector(button.dataset.modalTarget)
-                openModal(modal)
-            })
-        })
+                function closeModal(modal) {
+                    if (modal == null) return
+                    modal.classList.remove('active')
+                    overlay.classList.remove('active')
+                }
+                $(document).ready(function () {
 
-        overlay.addEventListener('click', () => {
-            const modals = document.querySelectorAll('.modal.active')
-            modals.forEach(modal => {
-                closeModal(modal)
-            })
-        })
+                    $('.booking').on('click', function () {
+                        var carname = $(this).parent().siblings().children('.name').text();
+                        var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
+                        var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
+                        var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
+                        var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
+                        var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
+                        sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
+                    })
+                });
 
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.modal')
-                closeModal(modal)
-            })
-        })
+            </script>
+            </body>
 
-        function openModal(modal) {
-            if (modal == null) return
-            modal.classList.add('active')
-            overlay.classList.add('active')
-
-        }
-
-        function closeModal(modal) {
-            if (modal == null) return
-            modal.classList.remove('active')
-            overlay.classList.remove('active')
-        }
-
-
-        $(document).ready(function () {
-            debugger;
-
-            var fullname = sessionStorage.getItem('fullname');
-
-            if (fullname != undefined && fullname != "" && fullname != null) {
-                $('#welcome_msg').html('Welcome ' + fullname);
-                $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
-                $('#li_myprofile').css('display', '');
-            }
-
-            $('.booking').on('click', function () {
-                var carname = $(this).parent().siblings().children('.name').text();
-                var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
-                var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
-                var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
-                var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
-                var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
-                sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
-            })
-        });
-
-
-        function Logout() {
-            sessionStorage.removeItem('email')
-            sessionStorage.removeItem('fullname')
-            window.location.replace("logout.html");
-        }
-
-    </script>
-</body>
-
-</html>
+            </html>

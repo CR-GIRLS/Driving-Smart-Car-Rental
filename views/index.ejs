@@ -1,107 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drive Smart Car Rental</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" type="text/css" href="css/jquery-gallery.css">
-  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <style>
-    .inner-wrapper {
-      margin: 0;
-      padding: 0;
-      font-family: 'Open Sans';
-      font-size: 16px;
-      line-height: 1.5;
-      background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
-      /* min-height: 100vh; */
-      overflow-x: hidden;
-      margin-bottom: 2em;
-      ;
-    }
-
-    h1 {
-      margin: 2em 0;
-      padding: 40px 0 0 0;
-      font-family: serif;
-      font-size: 28px;
-      line-height: 1.2;
-      text-align: center;
-    }
-
-    .wrapper {
-      padding-bottom: 40px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      padding-left: 15px;
-      padding-right: 15px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .responsive-testimonals__rounded-4 {
-      margin: 1em;
-    }
-  </style>
-  <link rel="stylesheet" type="text/css"
-    href="https://www.jqueryscript.net/demo/Resonsive-Customizable-Testimonials/responsive-testimonals/css/responsive-testimonals.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-    crossorigin="anonymous"></script>
-  <script type="text/javascript"
-    src="https://www.jqueryscript.net/demo/Resonsive-Customizable-Testimonials/responsive-testimonals/js/responsive-testimonals.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.responsive-testimonals').responsiveTestimonals();
-    });
-  </script>
-</head>
-
-<body>
-  <nav>
-    <div class="logo">
-      <a class="navbar-brand mr-4 nav-item nav-link" href="/index">
-
-        <img src="images/logo1.jpg" alt="DriveSmart" width="120" height="90">
-
-      </a>
-      <!-- <img src="images/Drive Smart Logo.png"> -->
-    </div>
-
-    <div class="right">
-      <h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
-      <br>
-      <ul style="z-index: 1000;">
-        <li>
-          <a href="#">Book a Vehicle</a>
-          <ul>
-            <li><a class="nav-link" href="/car">Car</a></li>
-
-            <li><a class="nav-link" href="/suv">SUV</a></li>
-            <li><a class="nav-link" href="/van">Van</a></li>
-
-          </ul>
-
-        </li>
-        <li>
-          <a href="/bookingform">Manage Booking</a>
-
-        </li>
-
-        <li><a href="/aboutus">About Us</a></li>
-        <li><a href="/contactus">Contact Us</a></li>
-        <li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
-        <li><a href="/signin">SIGN IN / JOIN</a></li>
-
-      </ul>
-    </div>
-  </nav>
+<%- include('header',{title: 'Home' ,styles:'index', bodyClass:'' }) %>
   <div>
     <div class="slideshow-container">
 
@@ -132,7 +29,7 @@
         <!-- About Us -->
         <div class="">
           <header id="inner">
-            <h1 class="textbanner" id='textbanner'>Offers</h1>
+            <h1 class="textbanner">WEEKEND OFFERS</h1>
             <!-- <p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu
             elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum
             dolor sit amet nullam dolore.</p> -->
@@ -144,109 +41,34 @@
 
         <!-- Offers -->
         <section class="tiles">
-          <article class="style1">
-            <span class="image">
-              <img src="images/car-chevrolet.jpg" alt="" />
-            </span>
-            <a href="/car">
-              <h2>Chevrolet Cruze</h2>
+          <% for(var i=0;i<vehicles.length;i++){ %>
+            <article class="style<%= i+1 %>">
+              <span class="image">
+                <img src="<%= vehicles[i].Img_path %>" alt="" />
+              </span>
+              <% if(vehicles[i].Vehicle_type_id==1) {%>
+                <a href="/car">
+                  <% } else if(vehicles[i].Vehicle_type_id==2) {%>
+                    <a href="/suv">
+                      <% } else {%>
+                        <a href="/van">
+                          <% } %>
+                            <h2>
+                              <%= vehicles[i].Name %>
+                            </h2>
 
-              <p>price from: <strong> $ 50.00</strong> per day</p>
+                            <p>price from: <strong> $ <%= vehicles[i].Price_Daily %></strong> per day</p>
 
-              <div class="content">
-                <p>153-horsepower four-cylinder engine, remote keyless entry, Teen Driver, a rearview camera, and the
-                  Chevrolet MyLink infotainment system with two USB ports, Bluetooth, a four-speaker stereo, Apple
-                  CarPlay, Android Auto, and a Wi-Fi hot spot.</p>
-              </div>
-            </a>
-          </article>
-          <article class="style2">
-            <span class="image">
-              <img src="images/hyundai.jpg" alt="" />
-            </span>
-            <a href="/car">
-              <h2>Hyundai Accent</h2>
+                            <div class="content">
+                              <p>
+                                <%= vehicles[i].Description %>
+                              </p>
+                            </div>
+                        </a>
+            </article>
+            <% } %>
 
-              <p>price from: <strong> $ 50.00</strong> per day</p>
 
-              <div class="content">
-                <p>5 DOORS in Beautiful SILKY BLUE! Options include: Regular Unleaded I-4 1.6 L/97 CVT. Standard
-                  features include: Back-Up Camera, Tire Specific Low Tire Pressure Warning.</p>
-              </div>
-            </a>
-          </article>
-          <article class="style3">
-            <span class="image">
-              <img src="images/car-kia.jpg" alt="" />
-            </span>
-            <a href="/car">
-              <div class="card-ribbon">
-                <span>most popular</span>
-              </div>
-              <h2>Kia Rio</h2>
-
-              <p>price from: <strong> $ 45.00</strong> per day</p>
-
-              <div class="content">
-                <p>Whether you’re running around town at low speeds or hitting the open road, the fuel-sipping IVT
-                  equipped Rio 5-door will get you up to 100 kilometres on as little as 6.6 litres of fuel, and that
-                  should keep you smiling.</p>
-              </div>
-            </a>
-          </article>
-        </section>
-        <section class="tiles">
-          <article class="style4">
-            <span class="image">
-              <img src="images/suv-honda.jpg" alt="" />
-            </span>
-            <a href="/suv">
-              <h2>Honda CRV</h2>
-
-              <p>price from: <strong> $ 58.00</strong> per weekend</p>
-
-              <div class="content">
-                <p>184-horsepower engine discontinued, Comfortable ride, Great fuel economy, Handsome, roomy cabin.
-                  The
-                  2020 Honda CR-V provides a comfortable ride and composed handling. Its turbocharged engine feels
-                  sufficiently powerful.</p>
-              </div>
-            </a>
-          </article>
-          <article class="style5">
-            <span class="image">
-              <img src="images/van -ford2020.jpg" alt="" />
-            </span>
-            <a href="/van">
-              <h2>Ford Transit</h2>
-
-              <p>price from: <strong> $ 78.00</strong> per weekend</p>
-              <div class="content">
-                <p>
-                  The van gets a new and improved powertrain lineup, and it also adds standard driver-assistance
-                  features such as forward-collision warning and automated emergency braking. The 2020 Transit also
-                  benefits from interior updates such as new grab handles and vents.
-                </p>
-              </div>
-            </a>
-          </article>
-          <article class="style6">
-            <span class="image">
-              <img src="images/suv-mitsubishi.jpg" alt="" />
-            </span>
-            <a href="/suv">
-              <h2>Mitsubishi Outlander</h2>
-
-              <p>price from: <strong> $ 59.00</strong> per weekend</p>
-              <div class="content">
-                <p>
-                  Unlock the potential for adventure with the Mitsubishi Outlander, customizable cargo space. Camp out
-                  under the stars, hit the highway to visit old friends, or cruise the city streets in style - there's
-                  room for wherever life takes you with up to 49.5 cu.ft of space11.
-                </p>
-              </div>
-            </a>
-          </article>
         </section>
 
         <div class="inner-wrapper">
@@ -351,97 +173,17 @@
   </div>
 
 
-  <footer class="footer-distributed">
-
-    <div class="footer-left">
-      <img src="images/logo1.jpg">
-      <h3>About<span>DriveSmart</span></h3>
-
-      <p class="footer-links">
-        <a href="#">Home</a>
-        |
-        <a href="#">Blog</a>
-        |
-        <a href="#">About</a>
-        |
-        <a href="#">Contact</a>
-      </p>
-
-      <p class="footer-company-name">© 2021 Drive Smart </p>
-    </div>
-
-    <div class="footer-center">
-      <div>
-        <i class="fa fa-map-marker"></i>
-        <p><span>123 Dundas StBrantford
-          </span>
-          Toronto,ON N3R 1S6,Canada</p>
-      </div>
-
-      <div>
-        <i class="fa fa-phone"></i>
-        <p>+1 123-256-7890</p>
-      </div>
-      <div>
-        <i class="fa fa-envelope"></i>
-        <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
-      </div>
-    </div>
-    <div class="footer-right">
-      <p class="footer-company-about">
-        <span>About the company</span>
-        We offer renting service.
-      </p>
-      <div class="footer-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
-  <script src="js/jquery-gallery.js" type="text/javascript"></script>
-  <script src="https://www.jqueryscript.net/demo/Animated-Headline-Text-jQuery-Textbanner/textbanner.js"></script>
-  <script>
-    $('#textbanner').textbanner();
-  </script>
-  <script>
-    $(document).ready(function () {
-      var fullname = sessionStorage.getItem('fullname');
-      if (fullname != undefined && fullname != "" && fullname != null) {
-        $('#welcome_msg').html('Welcome ' + fullname);
-        $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>');
-        $('#li_myprofile').css('display', '')
-      }
-
-    });
-
-    function Logout() {
-      sessionStorage.removeItem('email')
-      sessionStorage.removeItem('fullname')
-      window.location.replace("logout.html");
-    }
-  </script>
-
-  <script type="text/javascript">
-    $(function () {
-      $('.gallery-slideshow').slideshow({
-        interval: 5000
+  <%- include('footer') %>
+    <script src="js/jquery-gallery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.responsive-testimonals').responsiveTestimonals();
+        $('.gallery-slideshow').slideshow({
+          interval: 5000
+        });
       });
-    });
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
 
-    (function () {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    </script>
+    </body>
 
-  </script>
-</body>
-
-</html>
+    </html>
