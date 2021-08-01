@@ -7,10 +7,6 @@
 				<div class="row">
 					<span class="text-info" id="booking_msg">
 						<%- messages() %>
-							<% if( typeof Message!='undefined' ) { %> <span>
-									<%= Message %>
-								</span>
-								<% } %>
 					</span>
 					<div id="bookingForm" class="booking-form" style="display: none;padding-bottom: 100px;">
 						<form action="/book/edit?_method=PUT" method="POST">

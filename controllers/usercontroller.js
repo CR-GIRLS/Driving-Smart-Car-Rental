@@ -34,7 +34,7 @@ module.exports={
         User.findOneAndUpdate({_id:userInfo._id}, userInfo,{new: true}, function(err, result){
             if (err) {res.render("Error inserting data")}
             req.session.user=result;
-            
+            req.flash("info", "Profile Updated Successfully!!");
             res.redirect('/myprofile');
         })
         

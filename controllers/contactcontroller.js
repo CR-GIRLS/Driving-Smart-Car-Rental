@@ -8,7 +8,8 @@ module.exports={
         var contactInfo = req.body;
         Contact.create(contactInfo, function(err, result){
             if (err) {res.render("Error inserting data")}
-            res.redirect('/index');
+            req.flash("error", "We have received your request. We will contact you shortly!!");
+            res.redirect('/contactus');
         })
         
     }

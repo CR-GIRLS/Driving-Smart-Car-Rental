@@ -30,12 +30,20 @@
                 height: 500px;
                 width: 600px;
               }
+
+              .text-info {
+                color: rgb(0, 162, 255);
+                font-weight: bold;
+              }
             </style>
           </div>
         </div>
       </div>
 
       <div class="column">
+        <span class="text-info" id="booking_msg">
+          <%- messages() %>
+        </span>
         <div class="row terms">
           <span class="term">Fill up this form. We will get back to you. </span>
 
@@ -47,7 +55,7 @@
           <input type="text" id="lname" name="Lastname" placeholder="Your last name..">
           <label for="email">Email</label>
           <input type="text" id="email" name="Email" placeholder="Your email..">
-          <label for="lname">Last Name</label>
+          <label for="lname">Phone Number</label>
           <input type="text" id="phone" name="Phone_number" placeholder="Your phone number..">
 
           <label for="subject">Subject</label>
