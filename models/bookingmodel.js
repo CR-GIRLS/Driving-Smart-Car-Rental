@@ -8,7 +8,7 @@ var bookingSchema = new mongoose.Schema(
         Pickup_date:{type:Date},
         Dropoff_date:{type:Date},
         Total_price:{type:Number},
-        
+        Driving_licence_path:{type:String}
     }
 );
 mongoose.model('booking',bookingSchema);

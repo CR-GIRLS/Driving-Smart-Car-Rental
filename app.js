@@ -5,6 +5,8 @@ var path = require('path');
 const bodyParser = require('body-parser');
 var session = require('express-session');
 const methodOverride = require('method-override');
+var formidable = require('formidable');
+var fs = require('fs');
 
 //db connection
 db_URL = "mongodb+srv://vahidadb:vahida@123@cluster0.zwipe.mongodb.net/DriveSmartCarRental?retryWrites=true&w=majority";
@@ -52,6 +54,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(methodOverride('_method'));
+global.__basedir = __dirname;
 
 
 //Services

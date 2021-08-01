@@ -26,6 +26,7 @@ Setting up project
 11. run command -> npm install express-session
 12. run command -> npm install --save express-validator
 13. run command -> npm install express-messages
+14. run command -> npm install formidable
 
 
 To Run the project
