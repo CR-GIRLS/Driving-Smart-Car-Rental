@@ -15,7 +15,7 @@ module.exports={
         console.log("I am inside save booking");
         Booking.create(bookingInfo,function(err, results){
             if (err) throw err;
-            console.log(results);
+            req.flash("info", "Vehicle Booked Successfully!!");
             res.redirect('/bookingform');
         });        
     },
@@ -26,23 +26,23 @@ module.exports={
         Booking.findOneAndUpdate({_id:bookingInfo._id},bookingInfo,{new: true},function(err, results){
             if (err) throw err;
             console.log(results);
-            res.locals.Message = "Booking Updated";
+            req.flash("info", "Booking Updated Successfully!!");
             res.redirect('/bookingform');
         });        
     },
     DeleteBooking: function(req,res){
         var bookingInfo = req.body;
-        console.log(bookingInfo);
         console.log("I am inside delete booking");
         if(bookingInfo._id != null){
         Booking.remove({_id:bookingInfo._id},function(err, results){
             if (err) throw err;
-            console.log(results);
-            res.locals.Message = "Booking Cancelled";
+            req.flash("error", "Booking Cancelled!!");
             res.redirect('/bookingform');
         });     
     }else{
-        res.locals.Message = "Booking Not Found";
+        req.flash("error", "Booking Not Found");
+        res.redirect('/bookingform');
+        // res.locals.Message = "Booking Not Found";
     }   
     },
     GetBookingData: function(req,res){

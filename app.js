@@ -46,9 +46,15 @@ app.use(function(req, res, next) {
     res.locals.Message = res.locals.Message;
     next();
   });
+app.use(require('connect-flash')());
+app.use(function (req, res, next) {
+  res.locals.messages = require('express-messages')(req, res);
+  next();
+});
 app.use(methodOverride('_method'));
 
 
+//Services
 app.get(['/','/index'], vehicleController.GetVehiclesOnOffer);
 
 app.get('/signin', function(req,res){
@@ -71,8 +77,11 @@ app.post('/signup/add',userController.SaveUser);
 app.get('/car', vehicleController.GetCars);
 
 app.get('/book',vehicleController.GetVehicleById);
+
 app.post('/book/add',bookingController.SaveBooking);
+
 app.put('/book/edit',bookingController.EditBooking);
+
 app.delete('/book/delete',bookingController.DeleteBooking);
 
 app.get('/suv', vehicleController.GetSUVs);
@@ -95,9 +104,6 @@ app.get('/myprofile', userController.GetUserById);
 
 app.put('/myprofile/update',userController.EditUser);
 
-// app.get('/users', userController.GetAll);
-// app.get('/users/save', userController.SaveUser);
-// app.get('/vehicles', vehicleController.GetAll);
 
 app.listen(5000,function(){
     console.log("Listenig to port 5000");

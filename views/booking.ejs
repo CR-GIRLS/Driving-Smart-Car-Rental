@@ -1,114 +1,121 @@
 <%- include('header',{title: 'Booking' ,styles:'booking' }) %>
+	<% if(typeof message=='undefined' ) { %>
+		<div id="booking" class="section" style=" background-image: url('<%= vehicle.Img_path %>');">
+			<% } else { %>
+				<div id="booking" class="section">
+					<% } %>
+						<div class="">
+							<div class="container">
 
-	<div id="booking" class="section" style="background-image: url('<%= vehicle.Img_path %>');">
-		<div class="">
-			<div class="container">
+								<% if(typeof message!='undefined' ) { %>
+									<div class="row terms" style="background-color: #e18787;text-align: center;">
+										<%= message %>
+									</div>
+									<% } else { %>
+										<div class="row terms">
+											<span class="term">Pick-up and drop-off timings are 10AM, more than one hour
+												delay
+												on
+												drop-off
+												may
+												cause 1 day extra charge. </span>
 
-				<% if(typeof message!='undefined' ) { %>
-					<div class="row terms" style="background-color: #e18787;text-align: center;">
-						<%= message %>
-					</div>
-					<% } else { %>
-						<div class="row terms">
-							<span class="term">Pick-up and drop-off timings are 10AM, more than one hour delay on
-								drop-off
-								may
-								cause 1 day extra charge. </span>
-
-						</div>
-						<!-- <div class="row terms">
+										</div>
+										<!-- <div class="row terms">
 							<span class="term">We are just booking on per day only. Weekly and monthly bookings are not
 								available right now. </span>
 
 						</div> -->
-						<div class="row">
-							<div class="booking-form">
-								<form action="/book/add" method="POST">
-									<div class="row">
-										<div class="col-md-4">
-											<div class="form-group">
-												<span class="form-label" style="font-size: x-large;" id="car_name">
-													<%= vehicle.Name %>
-												</span>
+										<div class="row">
+											<div class="booking-form">
+												<form action="/book/add" method="POST">
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<span class="form-label" style="font-size: x-large;"
+																	id="car_name">
+																	<%= vehicle.Name %>
+																</span>
 
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-4">
-											<div class="form-group">
-												<input type="hidden" name="Vehicle_id" id="Vehicle_id"
-													value="<%= vehicle._id %>">
-												<input type="hidden" name="User_id" id="User_id"
-													value="<%= user._id %>">
-												<span class="form-label" style="font-size: medium;">
-													Color: <%= vehicle.Color %>
-												</span>
-												<span class="form-label" style="font-size: medium;">
-													Model: <%= vehicle.Model %>
-												</span>
-												<span class="form-label" style="font-size: medium;">
-													Transmission: <%= vehicle.Transmission %>
-												</span>
-												<span class="form-label" style="font-size: medium;">
-													Price/Day: $<%= vehicle.Price_Daily %>
-												</span>
-												<span class="form-label" style="font-size: medium;">
-													Price/Week: $<%= vehicle.Price_Weekly %>
-												</span>
-												<span class="form-label" style="font-size: medium;">
-													Price/Month: $<%= vehicle.Price_Monthly %>
-												</span>
-											</div>
-										</div>
-									</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<input type="hidden" name="Vehicle_id" id="Vehicle_id"
+																	value="<%= vehicle._id %>">
+																<input type="hidden" name="User_id" id="User_id"
+																	value="<%= user._id %>">
+																<span class="form-label" style="font-size: medium;">
+																	Color: <%= vehicle.Color %>
+																</span>
+																<span class="form-label" style="font-size: medium;">
+																	Model: <%= vehicle.Model %>
+																</span>
+																<span class="form-label" style="font-size: medium;">
+																	Transmission: <%= vehicle.Transmission %>
+																</span>
+																<span class="form-label" style="font-size: medium;">
+																	Price/Day: $<%= vehicle.Price_Daily %>
+																</span>
+																<span class="form-label" style="font-size: medium;">
+																	Price/Week: $<%= vehicle.Price_Weekly %>
+																</span>
+																<span class="form-label" style="font-size: medium;">
+																	Price/Month: $<%= vehicle.Price_Monthly %>
+																</span>
+															</div>
+														</div>
+													</div>
 
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<span class="form-label">Full Name</span>
-												<input class="form-control" type="text" placeholder="Full name"
-													id="fullname" name="FullName" required>
-												<span class="text-red"></span>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-5">
-											<div class="form-group">
-												<span class="form-label">Pick-up</span>
-												<input class="form-control date_picker" type="date" id="Pickup_date"
-													name="Pickup_date" required>
-												<span class="text-red"></span>
-											</div>
-										</div>
-										<div class="col-md-5">
-											<div class="form-group">
-												<span class="form-label">Drop-off</span>
-												<input class="form-control date_picker" type="date" id="Dropoff_date"
-													name="Dropoff_date" required>
-												<span class="text-red"></span>
-											</div>
-										</div>
-										<div class="col-md-2">
-											<div class="form-group">
-												<span class="form-label">Total Cost</span>
-												<input type="hidden" class="form-control" id="total_cost_hidden"
-													name="Total_price">
-												<input type="text" class="form-control" id="total_cost"
-													name="Total_price" disabled>$
-												<!-- <span class="form-label" id="total_cost" name="Total_price"
+													<div class="row">
+														<div class="col-md-12">
+															<div class="form-group">
+																<span class="form-label">Full Name</span>
+																<input class="form-control" type="text"
+																	placeholder="Full name" id="fullname"
+																	name="FullName" required>
+																<span class="text-red"></span>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-5">
+															<div class="form-group">
+																<span class="form-label">Pick-up</span>
+																<input class="form-control date_picker" type="date"
+																	id="Pickup_date" name="Pickup_date" required>
+																<span class="text-red"></span>
+															</div>
+														</div>
+														<div class="col-md-5">
+															<div class="form-group">
+																<span class="form-label">Drop-off</span>
+																<input class="form-control date_picker" type="date"
+																	id="Dropoff_date" name="Dropoff_date" required>
+																<span class="text-red"></span>
+															</div>
+														</div>
+														<div class="col-md-2">
+															<div class="form-group">
+																<span class="form-label">Total Price</span>
+																<input type="hidden" class="form-control"
+																	id="total_cost_hidden" name="Total_price">
+																<input type="text" class="form-control" id="total_cost"
+																	name="Total_price" disabled>$
+																<!-- <span class="form-label" id="total_cost" name="Total_price"
 													style="text-transform: none;font-size: large;">Total Cost :
 													$0.00</span> -->
-												<!-- <input class="form-control date_picker" type="text" id="total_cost" readonly required> -->
-											</div>
-										</div>
+																<!-- <input class="form-control date_picker" type="text" id="total_cost" readonly required> -->
+															</div>
+														</div>
 
-										<div id="dif">
+														<div id="dif">
 
-										</div>
+														</div>
 
-										<!-- <div class="form-group" x-data="{ fileName: '' }">
+														<!-- <div class="form-group" x-data="{ fileName: '' }">
 									<div class="input-group shadow">
 									<span class="input-group-text px-3 text-muted"><i class="fa fa-image fa-lg"></i></span>
 									<input type="file" x-ref="file" @change="fileName = $refs.file.files[0].name" name="img[]" class="d-none">
@@ -116,212 +123,215 @@
 									<button class="browse btn btn-primary px-4" type="button" x-on:click.prevent="$refs.file.click()"><i class="fas fa-image"></i> Upload</button>
 									</div>
 									</div> -->
-										<div class="row">
-											<div class="col-md-6 ">
-												<div class="form-group">
-													<span class="form-label">Upload Driving License</span>
-													<label class="file upload">
-														<span><i class="fa fa-image"></i></span>
-														<input type="file" id="file" aria-label="File browser example"
-															required>
-														<span class="file-custom"></span>
-														<span class="text-red"></span>
-													</label>
-												</div>
-											</div>
+														<div class="row">
+															<div class="col-md-6 ">
+																<div class="form-group">
+																	<span class="form-label">Upload Driving
+																		License</span>
+																	<label class="file upload">
+																		<span><i class="fa fa-image"></i></span>
+																		<input type="file" id="file"
+																			aria-label="File browser example" required>
+																		<span class="file-custom"></span>
+																		<span class="text-red"></span>
+																	</label>
+																</div>
+															</div>
 
-											<div class="col-md-6">
-												<span class="form-label">Terms And Conditions</span>
-												<div class="form-group conditions">
-													<!-- <form action="#" -->
-													<!-- onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }"> -->
+															<div class="col-md-6">
+																<span class="form-label">Terms And Conditions</span>
+																<div class="form-group conditions">
+																	<!-- <form action="#" -->
+																	<!-- onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }"> -->
 
-													<input type="checkbox" name="checkbox" value="check" id="agree" /> I
-													have
-													read and agree to the Terms and Conditions and Privacy Policy
-													<span class="text-red"></span>
+																	<input type="checkbox" name="checkbox" value="check"
+																		id="agree" /> I
+																	have
+																	read and agree to the Terms and Conditions and
+																	Privacy
+																	Policy
+																	<span class="text-red"></span>
 
-													<!-- </form> -->
-												</div>
-											</div>
-										</div>
+																	<!-- </form> -->
+																</div>
+															</div>
+														</div>
 
-										<div class="row">
-											<div class="col-md-3">
-												<!-- <button class="btn"  >Get Quote</button>
+														<div class="row">
+															<div class="col-md-3">
+																<!-- <button class="btn"  >Get Quote</button>
                                     <p id="diff"></p> -->
-											</div>
-											<div class="col-md-3">
-												<div class="form-btn">
-													<input type="submit" class="submit-btn book"
-														value="Confirm Booking" />
-												</div>
-											</div>
-											<div class="col-md-3">
-												<div class="form-btn">
-													<button class="submit submit-btn cancel">Cancel Booking</button>
-												</div>
+															</div>
+															<div class="col-md-3">
+																<div class="form-btn">
+																	<input type="submit" class="submit-btn book"
+																		value="Confirm Booking" />
+																</div>
+															</div>
+															<div class="col-md-3">
+																<div class="form-btn">
+																	<button class="submit submit-btn cancel">Cancel
+																		Booking</button>
+																</div>
 
+															</div>
+															<div class="col-md-3"></div>
+														</div>
+												</form>
 											</div>
-											<div class="col-md-3"></div>
 										</div>
-								</form>
+										<% } %>
 							</div>
 						</div>
-						<% } %>
-			</div>
-		</div>
-	</div>
-	<%- include('footer') %>
-		<script src="js/booking.js"></script>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous">
-			</script>
+				</div>
+				<%- include('footer') %>
+					<script src="js/booking.js"></script>
+					<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+						integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+						crossorigin="anonymous">
+						</script>
 
-		<script>
-			$(document).ready(function () {
-				$('.footer-distributed').css('margin-top', '0px');
-			});
+					<script>
+						$(document).ready(function () {
+							$('.footer-distributed').css('margin-top', '0px');
+						});
 
 
-			$('.book').on('click', function () {
+						$('.book').on('click', function () {
 
-				var fullName = $('#fullname').val();
-				var pickupDate = $('#Pickup_date').val();
-				var dropoffDate = $('#Dropoff_date').val();
-				var license = document.getElementById('file').files[0];
-				var isValid = true;
-				if (fullName == undefined || fullName == null || fullName == "") {
-					$('#fullname').next().text("Please enter full name!");
-					isValid = false;
-
-				}
-				else {
-					$('#fullname').next().text("");
-				}
-				if (pickupDate == undefined || pickupDate == null || pickupDate == "") {
-					$('#Pickup_date').next().text("Please select pickup date!");
-					isValid = false;
-
-				}
-				else {
-					$('#Pickup_date').next().text("");
-				}
-				if (dropoffDate == undefined || dropoffDate == null || dropoffDate == "") {
-					$('#Dropoff_date').next().text("Please select drop-off date!");
-					isValid = false;
-
-				}
-				else {
-					$('#Dropoff_date').next().text("");
-				}
-
-
-				if (license == undefined || license == null || license == "") {
-
-					$('#file').next().next().text("Please upload driving license");
-					isValid = false;
-
-				}
-				else {
-					$('#file').next().next().text("");
-				}
-				debugger;
-				if ($('input[type=checkbox]:checked').length == 0) {
-					$('#agree').next().text('Agree to the terms and conditions.');
-					isValid = false;
-				}
-
-				else {
-					$('#agree').next().text('');
-				}
-				if (isValid) {
-					// var booked_car_data = { bookingref: bookingref, fullName: fullName, carName: carName, finalCost: finalCost, pickupDate: pickupDate, dropoffDate: dropoffDate, license: license, carImage: carImage };
-					// sessionStorage.setItem('booked_cardata', JSON.stringify(booked_car_data));
-					// window.location.replace("/bookingform");
-					return true;
-				}
-				else {
-					return false;
-				}
-
-			});
-
-			$('.date_picker').on('change', function () {
-				debugger;
-				var currentVehicle = '<%- JSON.stringify(vehicle) %>';
-				currentVehicle = JSON.parse(currentVehicle.replace("\n", ""));
-				dailyrate = currentVehicle.Price_Daily;
-				weeklyrate = currentVehicle.Price_Weekly;
-				monthlyrate = currentVehicle.Price_Monthly;
-
-				pickup = $('#Pickup_date').val();
-				dropoff = $('#Dropoff_date').val();
-
-				if (pickup != undefined && pickup != null && pickup != "" && dropoff != undefined && dropoff != null && dropoff != "") {
-
-					pickup_date = new Date(pickup);
-					dropoff_date = new Date(dropoff);
-					if (pickup_date < dropoff_date) {
-
-						t1 = pickup_date.getTime();
-						t2 = dropoff_date.getTime();
-						var diff1 = Math.abs(t2 - t1);
-						var millisecondsInADay = (1000 * 3600 * 24);
-						var diffindays = diff1 / millisecondsInADay;
-						var week_quot = 0;
-						var week_rem = 0;
-						var rem;
-
-						var week = 7;
-
-
-						if (diffindays < 7) {
-
-
-							rate = dailyrate * diffindays;
-						}
-						else if (diffindays < 30) {
-
-
-							diff = Math.floor(diffindays / week);
-							rem = diffindays % week;
-							rate = (weeklyrate * diff) + (rem * dailyrate);
-
-						}
-						else {
-							diff = Math.floor(diffindays / 30);
-							rem_month = diffindays % 30;
-							if (rem_month > 7) {
-								week_quot = Math.floor(rem_month / 7);
-								week_rem = rem_month % week;
+							var fullName = $('#fullname').val();
+							var pickupDate = $('#Pickup_date').val();
+							var dropoffDate = $('#Dropoff_date').val();
+							var license = document.getElementById('file').files[0];
+							var isValid = true;
+							if (fullName == undefined || fullName == null || fullName == "") {
+								$('#fullname').next().text("Please enter full name!");
+								isValid = false;
 
 							}
+							else {
+								$('#fullname').next().text("");
+							}
+							if (pickupDate == undefined || pickupDate == null || pickupDate == "") {
+								$('#Pickup_date').next().text("Please select pickup date!");
+								isValid = false;
 
+							}
+							else {
+								$('#Pickup_date').next().text("");
+							}
+							if (dropoffDate == undefined || dropoffDate == null || dropoffDate == "") {
+								$('#Dropoff_date').next().text("Please select drop-off date!");
+								isValid = false;
+
+							}
+							else {
+								$('#Dropoff_date').next().text("");
+							}
+
+
+							if (license == undefined || license == null || license == "") {
+
+								$('#file').next().next().text("Please upload driving license");
+								isValid = false;
+
+							}
+							else {
+								$('#file').next().next().text("");
+							}
+							if ($('input[type=checkbox]:checked').length == 0) {
+								$('#agree').next().text('Agree to the terms and conditions.');
+								isValid = false;
+							}
 
 							else {
-
-								week_rem = rem_month % week;
+								$('#agree').next().text('');
+							}
+							if (isValid) {
+								// var booked_car_data = { bookingref: bookingref, fullName: fullName, carName: carName, finalCost: finalCost, pickupDate: pickupDate, dropoffDate: dropoffDate, license: license, carImage: carImage };
+								// sessionStorage.setItem('booked_cardata', JSON.stringify(booked_car_data));
+								// window.location.replace("/bookingform");
+								return true;
+							}
+							else {
+								return false;
 							}
 
-							rate = (monthlyrate * diff) + (weeklyrate * week_quot) + (week_rem * dailyrate);
+						});
+
+						$('.date_picker').on('change', function () {
+							var currentVehicle = '<%- JSON.stringify(vehicle) %>';
+							currentVehicle = JSON.parse(currentVehicle.replace("\n", ""));
+							dailyrate = currentVehicle.Price_Daily;
+							weeklyrate = currentVehicle.Price_Weekly;
+							monthlyrate = currentVehicle.Price_Monthly;
+
+							pickup = $('#Pickup_date').val();
+							dropoff = $('#Dropoff_date').val();
+
+							if (pickup != undefined && pickup != null && pickup != "" && dropoff != undefined && dropoff != null && dropoff != "") {
+
+								pickup_date = new Date(pickup);
+								dropoff_date = new Date(dropoff);
+								if (pickup_date < dropoff_date) {
+
+									t1 = pickup_date.getTime();
+									t2 = dropoff_date.getTime();
+									var diff1 = Math.abs(t2 - t1);
+									var millisecondsInADay = (1000 * 3600 * 24);
+									var diffindays = diff1 / millisecondsInADay;
+									var week_quot = 0;
+									var week_rem = 0;
+									var rem;
+
+									var week = 7;
 
 
-						}
-						cost = (rate).toFixed(2);
-						// final = "Total Cost : $" + cost;
-						// debugger;
-						document.getElementById('total_cost').value = cost;
-						document.getElementById('total_cost_hidden').value = cost;
+									if (diffindays < 7) {
 
-					}
-					else {
-						alert("Please select a valid drop-off date!!");
-					}
-				}
-			});
 
-		</script>
-		</body>
+										rate = dailyrate * diffindays;
+									}
+									else if (diffindays < 30) {
 
-		</html>
+
+										diff = Math.floor(diffindays / week);
+										rem = diffindays % week;
+										rate = (weeklyrate * diff) + (rem * dailyrate);
+
+									}
+									else {
+										diff = Math.floor(diffindays / 30);
+										rem_month = diffindays % 30;
+										if (rem_month > 7) {
+											week_quot = Math.floor(rem_month / 7);
+											week_rem = rem_month % week;
+
+										}
+
+
+										else {
+
+											week_rem = rem_month % week;
+										}
+
+										rate = (monthlyrate * diff) + (weeklyrate * week_quot) + (week_rem * dailyrate);
+
+
+									}
+									cost = (rate).toFixed(2);
+									// final = "Total Cost : $" + cost;
+									document.getElementById('total_cost').value = cost;
+									document.getElementById('total_cost_hidden').value = cost;
+
+								}
+								else {
+									alert("Please select a valid drop-off date!!");
+								}
+							}
+						});
+
+					</script>
+					</body>
+
+					</html>
