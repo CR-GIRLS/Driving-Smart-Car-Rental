@@ -5,11 +5,12 @@
 			<button id="toggle" class="btn btn-primary">Toggle Booking Form</button>
 			<div id="content" class="container">
 				<div class="row">
-					<span class="text-red" id="booking_msg">
-						<% if( typeof Message!='undefined' ) { %> <span>
-								<%= Message %>
-							</span>
-							<% } %>
+					<span class="text-info" id="booking_msg">
+						<%- messages() %>
+							<% if( typeof Message!='undefined' ) { %> <span>
+									<%= Message %>
+								</span>
+								<% } %>
 					</span>
 					<div id="bookingForm" class="booking-form" style="display: none;padding-bottom: 100px;">
 						<form action="/book/edit?_method=PUT" method="POST">
@@ -60,7 +61,7 @@
 									</div>
 									<div id="costdiv" class="col-md-4">
 										<div class="form-group">
-											<span class="form-label">Cost</span>
+											<span class="form-label">Total Price</span>
 											<input type="hidden" class="form-control" id="cost_hidden"
 												name="Total_price">
 											<input id="cost" name="Total_price" value="<%= booking.Total_price %>"
@@ -157,7 +158,6 @@
 					$("#bookingDetails").show(1500);
 					document.getElementById("pickup_date").value = new Date(booked_car_data["Pickup_date"]).toISOString().slice(0, 10);
 					document.getElementById("return_date").value = new Date(booked_car_data["Dropoff_date"]).toISOString().slice(0, 10);
-					debugger;
 					document.getElementById("booking").style.backgroundImage = "url(" + car_data['Img_path'] + ")";
 
 					document.getElementById("viewBookingbtn").style.display = "none";
@@ -178,9 +178,6 @@
 				document.getElementById("saveBookingbtn").style.display = "inline";
 			}
 			$('.date_picker').on('change', function () {
-				debugger;
-				// var car = '<%- JSON.stringify(vehicle) %>';
-				// var car_data = JSON.parse(car.replace("\n", ""));
 				pickup = $('#pickup_date').val();
 				dropoff = $('#return_date').val();
 				dailyrate = car_data.Price_Daily;
@@ -237,8 +234,6 @@
 
 						}
 						cost = (rate).toFixed(2);
-						// final = "Total Cost : $" + cost;
-						// debugger;
 						document.getElementById('cost').value = cost;
 						document.getElementById('cost_hidden').value = cost;
 
