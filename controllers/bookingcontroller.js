@@ -15,15 +15,12 @@ module.exports={
     SaveBooking: function(req,res){
       var form = new formidable.IncomingForm();
       form.parse(req, function (err, fields, files) {
-          console.log("----hello----")
-          console.log(fields);
       var oldpath = files.Driving_licence_path.path;
       var newpath = __basedir + '/public/DrivingLicence/' + files.Driving_licence_path.name;
       fs.copyFile(oldpath, newpath, function (err) {
         if (err) throw err;
         var bookingInfo = fields;
         bookingInfo.Driving_licence_path = 'DrivingLicence/' + files.Driving_licence_path.name;
-        console.log(bookingInfo);
         console.log("I am inside save booking");
         Booking.create(bookingInfo,function(err, results){
             if (err) throw err;
