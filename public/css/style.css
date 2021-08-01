@@ -1,6 +1,7 @@
 .section {
 	position: relative;
-	height: 80vh;
+	min-height: 80vh;
+	/* padding-bottom: 80px; */
 }
 
 .section .section-center {
@@ -192,5 +193,10 @@
 
 .text-red {
 	color: red;
+	font-weight: bold;
+}
+
+.text-info {
+	color: rgb(0, 162, 255);
 	font-weight: bold;
 }

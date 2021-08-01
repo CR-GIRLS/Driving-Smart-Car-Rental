@@ -20,6 +20,9 @@
                                     <form action="/myprofile/update?_method=PUT" method="POST">
                                         <input type="hidden" name="_method" value="PUT">
                                         <div class="card-block">
+                                            <span class="text-info" id="booking_msg">
+                                                <%- messages() %>
+                                            </span>
                                             <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -109,7 +112,11 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
         <script>
 
-
+            $(document).ready(function () {
+                var editUser = '<%- JSON.stringify(editUser) %>';
+                editUser = JSON.parse(editUser.replace("\n", ""));
+                document.getElementById("return_date").value = new Date(editUser["Birthdate"]).toISOString().slice(0, 10);
+            });
             // $("#profile_update").click(function (event) {
             //     var firstname = $('#fname').val();
             //     var lastname = $('#lname').val();
@@ -131,7 +138,6 @@
             });
 
             function previewFile() {
-                debugger;
                 var preview = $('#placeholder')[0];
                 var file = document.querySelector('input[type=file]').files[0];
                 var reader = new FileReader();

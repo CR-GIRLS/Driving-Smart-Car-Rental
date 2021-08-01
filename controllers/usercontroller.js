@@ -8,6 +8,8 @@ module.exports={
         id = req.session.user._id;
         User.findOne({_id:id},function(err, results){
             if (err) throw err;
+            //results.Birthdate = results.Birthdate.toShortDateString();
+            // console.log(results.Birthdate);
             res.render('myprofile',{editUser:results});
         })  ;  
       }  
@@ -32,8 +34,8 @@ module.exports={
         User.findOneAndUpdate({_id:userInfo._id}, userInfo,{new: true}, function(err, result){
             if (err) {res.render("Error inserting data")}
             req.session.user=result;
-            
-            res.redirect('/index');
+            req.flash("info", "Profile Updated Successfully!!");
+            res.redirect('/myprofile');
         })
         
     },

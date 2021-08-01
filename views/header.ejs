@@ -28,9 +28,6 @@
             <% } else if(styles=='index' ) { %>
                 <link rel="stylesheet" type="text/css" href="css/jquery-gallery.css">
                 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-                <link rel="stylesheet"
-                    href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
                 <link rel="stylesheet" type="text/css"
                     href="https://www.jqueryscript.net/demo/Resonsive-Customizable-Testimonials/responsive-testimonals/css/responsive-testimonals.css">
                 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -38,31 +35,49 @@
                     crossorigin="anonymous"></script>
                 <script type="text/javascript"
                     src="https://www.jqueryscript.net/demo/Resonsive-Customizable-Testimonials/responsive-testimonals/js/responsive-testimonals.js"></script>
-
-
+                <link rel="stylesheet" href="css/home.css">
                 <% } else if(styles=='profile' ) { %>
                     <script src="https://code.jquery.com/jquery-3.6.0.js"
                         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
                         crossorigin="anonymous"></script>
-
                     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
                         id="bootstrap-css">
                     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-                    <link rel="stylesheet"
-                        href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
                     <link rel="stylesheet"
                         href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
                     <link rel="stylesheet" href="css/profile.css">
                     <% } else if(styles=='contact' ) { %>
                         <link rel="stylesheet" href="css/contact.css">
-                        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-                        <link rel="stylesheet"
-                            href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-                        <% } %>
-                            <link rel="stylesheet" type="text/css" href="css/styles.css">
-                            <link rel="stylesheet" href="css/footer.css">
-                            <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+                        <% } else if(styles=='about' ) { %>
+                            <link rel="stylesheet" type="text/css" href="css/aboutus.css">
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                            <% } else if(styles=='booking' ) { %>
+                                <link rel="stylesheet" type="text/css" href="css/jquery-gallery.css">
+                                <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet"
+                                    type="text/css">
+                                <link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+                                <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+                                <link type="text/css" rel="stylesheet" href="css/style.css" />
+                                <% } else if(styles=='viewbooking' ) { %>
+
+                                    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet"
+                                        type="text/css">
+                                    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
+                                    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+                                    <link type="text/css" rel="stylesheet" href="css/style.css" />
+                                    <% } %>
+
+                                        <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"
+                                            type="text/css">
+                                        <link rel="stylesheet"
+                                            href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+                                        <link rel="stylesheet" type="text/css" href="css/styles.css">
+                                        <link rel="stylesheet" href="css/footer.css">
+                                        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
+
+
+
 </head>
 <% if( typeof bodyClass!='undefined' ){ %>
 
@@ -88,8 +103,9 @@
                             </h4>
                             <br>
                             <ul style="z-index: 1000;">
+                                <li><a href="/">Home</a></li>
                                 <li>
-                                    <a href="#">Book a Vehicle</a>
+                                    <a href="/car">Book a Vehicle</a>
                                     <ul>
                                         <li><a class="nav-link" href="/car">Car</a></li>
 
@@ -99,7 +115,7 @@
                                     </ul>
 
                                 </li>
-                                <li>
+                                <li style="display: none;" id="li_managebooking">
                                     <a href="/bookingform">Manage Booking</a>
 
                                 </li>
