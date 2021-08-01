@@ -48,22 +48,30 @@
         </div>
     </div>
 </footer>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-    crossorigin="anonymous"></script> -->
-<script>
-    $(document).ready(function () {
-        var currentUser = '<%- JSON.stringify(user) %>';
-        currentUser = JSON.parse(currentUser);
-        debugger;
-        var firstname = currentUser.Firstname;
+<% if(typeof page !='undefined' && page=='index' ){ %>
+    <!-- do not uncmment otherwise home page will get affected -->
 
-        if (firstname != undefined && firstname != "" && firstname != null) {
-            $('#welcome_msg').html('Welcome ' + firstname);
-            $('.right ul li:last').html('<a href="/logout" class="logout" >LOG OUT</a>')
-            $('#li_myprofile').css('display', '');
-        }
+    <% } else{ %>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+            crossorigin="anonymous"></script>
+        <%}%>
+            <script>
+                $(document).ready(function () {
 
-    });
+                    var currentUser = ' <%- JSON.stringify(user) %>';
+                    currentUser = JSON.parse(currentUser);
 
-</script>
+                    var firstname = currentUser.Firstname;
+
+                    if (firstname != undefined && firstname != "" && firstname != null) {
+                        $('#welcome_msg').html('Welcome ' + firstname);
+                        $('.right ul li:last').html('<a href="/logout" class="logout">LOG OUT</a>')
+                        $('#li_myprofile').css('display', '');
+                        $('#li_managebooking').css('display', '');
+
+                    }
+
+                });
+
+            </script>

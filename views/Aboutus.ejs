@@ -7,12 +7,6 @@
   <link rel="stylesheet" type="text/css" href="css/footer.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-
-    $div.on('mouseenter', function () {
-      $(div).animate({ margin: -10, width: "+=20", height: "+=20" });
-    });
-  </script>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -65,11 +59,10 @@
     <p></p>
   </div>
 
-  <h2 style="text-align:center">Our Team</h2>
   <div class="row">
     <div class="column" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
-        <img src="images/1.jpg" alt="Jane" style="width:100%">
+        <img src="images/1.jpg" alt="Jane">
         <div class="container">
           <h2>Mike Ross</h2>
           <p class="title">CEO & Founder</p>
@@ -90,7 +83,7 @@
 
     <div class="column" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
-        <img src="images/2.jpg" alt="Mike" style="width:100%">
+        <img src="images/2.jpg" alt="Mike">
         <div class="container">
           <h2>Jane Roberts</h2>
           <p class="title">Director</p>
@@ -109,7 +102,7 @@
 
     <div class="column" data-aos="zoom-in" data-aos-duration="1000">
       <div class="card">
-        <img src="images/3.jpg" alt="John" style="width:100%">
+        <img src="images/3.jpg" alt="John">
         <div class="container">
           <h2>Emilia Anderson</h2>
           <p class="title">General Manager</p>
@@ -133,93 +126,11 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
     crossorigin="anonymous"></script>
-  <script src="js/booking.js"></script>
 
   <script>
-    $(document).ready(function () {
-      debugger;
-
-      var fullname = sessionStorage.getItem('fullname');
-
-      if (fullname != undefined && fullname != "" && fullname != null) {
-        $('#welcome_msg').html('Welcome ' + fullname);
-        $('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
-        $('#li_myprofile').css('display', '');
-      }
-
-      $('.booking').on('click', function () {
-        var carname = $(this).parent().siblings().children('.name').text();
-        var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
-        var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
-        var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
-        var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
-        var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
-        sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
-      })
-    });
-
-
-    function Logout() {
-      sessionStorage.removeItem('email')
-      sessionStorage.removeItem('fullname')
-      window.location.replace("logout.html");
-    }
-
-
-
     AOS.init();
   </script>
-
-  <footer class="footer-distributed">
-
-    <div class="footer-left">
-      <img src="images/logo1.jpg">
-      <h3>About<span>DriveSmart</span></h3>
-
-      <p class="footer-links">
-        <a href="#">Home</a>
-        |
-        <a href="#">Blog</a>
-        |
-        <a href="#">About</a>
-        |
-        <a href="#">Contact</a>
-      </p>
-
-      <p class="footer-company-name">© 2021 Drive Smart </p>
-    </div>
-
-    <div class="footer-center">
-      <div>
-        <i class="fa fa-map-marker"></i>
-        <p><span>123 Dundas StBrantford
-          </span>
-          Toronto,ON N3R 1S6,Canada</p>
-      </div>
-
-      <div>
-        <i class="fa fa-phone"></i>
-        <p>+1 123-256-7890</p>
-      </div>
-      <div>
-        <i class="fa fa-envelope"></i>
-        <p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
-      </div>
-    </div>
-    <div class="footer-right">
-      <p class="footer-company-about">
-        <span>About the company</span>
-        We offer renting service.
-      </p>
-      <div class="footer-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
+  <%- include('footer') %>
 </body>
 
 </html>

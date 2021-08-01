@@ -1,6 +1,7 @@
 .section {
 	position: relative;
-	height: 80vh;
+	min-height: 80vh;
+	/* padding-bottom: 80px; */
 }
 
 .section .section-center {

@@ -26,8 +26,12 @@ mongoose.connect(db_URL, {useUnifiedTopology:true, useNewUrlParser:true}, functi
 //import model and controller
 require('./models/usermodel');
 require('./models/vehiclemodel');
+require('./models/bookingmodel');
+require('./models/contactmodel');
 var userController = require('./controllers/usercontroller.js');
 var vehicleController = require('./controllers/vehiclecontroller.js');
+var bookingController = require('./controllers/bookingcontroller.js');
+var contactController = require('./controllers/contactcontroller.js');
 
 //express app
 var app = express()
@@ -39,6 +43,7 @@ app.set('view engine','ejs');
 app.use(session({secret: "Shh, its a secret!",saveUninitialized: true,resave: true}));
 app.use(function(req, res, next) {
     res.locals.user = req.session.user;
+    res.locals.Message = res.locals.Message;
     next();
   });
 app.use(methodOverride('_method'));
@@ -65,11 +70,10 @@ app.post('/signup/add',userController.SaveUser);
 
 app.get('/car', vehicleController.GetCars);
 
-app.get('/book/:id',function(req,res){
-    theId= req.params.id;
-    console.log(theId);
-    res.render('SignIn', vehicleController.GetCarById(theId));
-});
+app.get('/book',vehicleController.GetVehicleById);
+app.post('/book/add',bookingController.SaveBooking);
+app.put('/book/edit',bookingController.EditBooking);
+app.delete('/book/delete',bookingController.DeleteBooking);
 
 app.get('/suv', vehicleController.GetSUVs);
 
@@ -83,17 +87,17 @@ app.get('/contactus', function(req,res){
     res.render('Contactus')
 });
 
-app.get('/bookingform', function(req,res){
-    res.render('bookingform')
-});
+app.post('/contactus/add',contactController.SaveContactUs);
+
+app.get('/bookingform', bookingController.GetBookingData);
 
 app.get('/myprofile', userController.GetUserById);
 
 app.put('/myprofile/update',userController.EditUser);
 
 // app.get('/users', userController.GetAll);
-app.get('/users/save', userController.SaveUser);
-app.get('/vehicles', vehicleController.GetAll);
+// app.get('/users/save', userController.SaveUser);
+// app.get('/vehicles', vehicleController.GetAll);
 
 app.listen(5000,function(){
     console.log("Listenig to port 5000");

@@ -1,71 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Drive Smart Car Booking Form</title>
-	<link rel="stylesheet" type="text/css" href="css/jquery-gallery.css">
-	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.ico">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="css/styles.css">
-	<link type="text/css" rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/footer.css">
-	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
-
-</head>
-
-<body>
-	<nav>
-		<div class="logo">
-			<a class="navbar-brand mr-4 nav-item nav-link" href="/index">
-				<img src="images/logo1.jpg" alt="A1 Telecom" width="120" height="90">
-			</a>
-		</div>
-		<label for="btn" class="icon">
-			<span class="fa fa-bars"></span>
-		</label>
-		<div class="right">
-			<h4 class="welcome" id="welcome_msg">Welcome Guest</h4>
-			<br>
-			<ul style="z-index: 1000;">
-				<li>
-					<a href="#">Book a Vehicle</a>
-					<ul>
-						<li><a href="/car">Car</a></li>
-						<li><a href="/suv">SUV</a></li>
-						<li><a href="/van">Van</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="//bookingform">Manage Bookings</a>
-				</li>
-				<li><a href="/aboutus">About Us</a></li>
-				<li><a href="/contactus">Contact Us</a></li>
-				<li style="display: none;" id="li_myprofile"><a href="myprofile.html">My Profile</a></li>
-				<li><a href="/signin">SIGN IN / JOIN</a></li>
-			</ul>
-		</div>
-	</nav>
+<%- include('header',{title: 'View Booking' ,styles:'viewbooking' }) %>
 
 	<div id="booking" class="section">
 		<div class="section-center">
 			<button id="toggle" class="btn btn-primary">Toggle Booking Form</button>
 			<div id="content" class="container">
 				<div class="row">
-					<span class="text-red" id="booking_msg"></span>
-					<div id="bookingForm" class="booking-form" style="display: none;">
-						<form>
+					<span class="text-red" id="booking_msg">
+						<% if( typeof Message!='undefined' ) { %> <span>
+								<%= Message %>
+							</span>
+							<% } %>
+					</span>
+					<div id="bookingForm" class="booking-form" style="display: none;padding-bottom: 100px;">
+						<form action="/book/edit?_method=PUT" method="POST">
+							<input type="hidden" name="_method" value="PUT">
 							<div class="row">
 								<div id="ref" class="col-md-12" style="display: none;">
 									<div class="form-group">
 										<span class="form-label">Booking Reference</span>
-										<input id="bookingref" class="form-control" type="text"
-											placeholder="Booking reference">
+										<input id="bookingref" name="_id" value="<%= booking._id %>"
+											class="form-control" type="text" placeholder="Booking reference" disabled>
+										<input type="hidden" name="_id" id="_id" value="<%= booking._id %>">
 									</div>
 								</div>
 							</div>
@@ -74,15 +29,15 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Full Name</span>
-											<input id="fullname" class="form-control" type="text"
-												placeholder="Full Name" disabled>
+											<input id="fullname" name="FullName" value="<%= booking.FullName %>"
+												class="form-control" type="text" placeholder="Full Name" disabled>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<span class="form-label">Car Name</span>
-											<input id="carName" class="form-control" type="text" placeholder="Car name"
-												disabled>
+											<input id="carName" value="<%= vehicle.Name %>" class="form-control"
+												type="text" placeholder="Car name" disabled>
 										</div>
 									</div>
 								</div>
@@ -90,31 +45,35 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Pick-up</span>
-											<input id="pickup_date" class="form-control date_picker" type="date"
-												disabled>
+											<input id="pickup_date" name="Pickup_date"
+												value="<%= booking.Pickup_date %>" class="form-control date_picker"
+												type="date" disabled>
 										</div>
 									</div>
 									<div class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Return</span>
-											<!-- <p id="final">Total Cost is :$</p> -->
-											<input id="return_date" class="form-control date_picker" type="date"
-												disabled>
+											<input id="return_date" name="Dropoff_date"
+												value="<%= booking.Dropoff_date %>" class="form-control date_picker"
+												type="date" disabled>
 										</div>
 									</div>
 									<div id="costdiv" class="col-md-4">
 										<div class="form-group">
 											<span class="form-label">Cost</span>
-											<input id="cost" class="form-control" type="text" disabled>
+											<input type="hidden" class="form-control" id="cost_hidden"
+												name="Total_price">
+											<input id="cost" name="Total_price" value="<%= booking.Total_price %>"
+												class="form-control" type="text" disabled>
 										</div>
 									</div>
 
-									<div id=finaldiv class="col-md-4" style="display: none;">
+									<!-- <div id=finaldiv class="col-md-4" style="display: none;">
 										<div class="form-group">
 											<span class="form-label">Cost</span>
 											<input id="final" class="form-control" type="text" disabled>
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</div>
 							<div class="row">
@@ -129,26 +88,34 @@
 								</div>
 
 								<div class="col-md-12">
-									<div id="modifyBookingbtn" class="col-md-6">
+									<div id="modifyBookingbtn" class="col-md-12">
 										<div class="form-btn">
-											<input type="button" class="submit-btn" onclick="modifyBooking()"
-												value="Change Dates" />
+											<input type="button" class="submit-btn" style="background-color:#3ed1f2;"
+												onclick="modifyBooking()" value="Change Dates" />
 										</div>
 									</div>
-									<div id="saveBookingbtn" class="col-md-6">
+									<div id="saveBookingbtn" class="col-md-12">
 										<div class="form-btn">
-											<input type="submit" class="submit-btn" onclick="saveBooking()"
-												value="Save Changes" />
+											<input type="submit" class="submit-btn" style="background-color:#4ac994;"
+												onclick="saveBooking()" value="Save Changes" />
 										</div>
 									</div>
-									<div id="cancelBookingbtn" class="col-md-6">
-										<div class="form-btn">
-											<button class="submit-btn" onclick="cancelBooking()">Cancel Booking</button>
-										</div>
-									</div>
+
 								</div>
 							</div>
 						</form>
+						<div class="">
+							<div id="cancelBookingbtn" class="col-md-12">
+								<form action="/book/delete?_method=DELETE" method="POST">
+									<input type="hidden" name="_method" value="DELETE">
+									<div class="form-btn">
+										<input type="hidden" name="_id" id="_id" value="<%= booking._id %>">
+										<button type="submit" class="submit-btn">Cancel
+											Booking</button>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -156,231 +123,149 @@
 	</div>
 
 
+	<%- include('footer') %>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
+			crossorigin="anonymous"></script>
+		<script src="js/booking.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"
-		crossorigin="anonymous"></script>
-	<script src="js/booking.js"></script>
-	<script>
-
-
-		$(document).ready(function () {
-
-			var fullname = sessionStorage.getItem('fullname');
-
-			if (fullname != undefined && fullname != "" && fullname != null) {
-				$('#welcome_msg').html('Welcome ' + fullname);
-				$('.right ul li:last').html('<a href="#" class="logout" onclick="Logout()" >LOG OUT</a>')
-				$('#li_myprofile').css('display', '');
-			}
-
-			$('.booking').on('click', function () {
-				var carname = $(this).parent().siblings().children('.name').text();
-				var rate = $(this).parent().children().children().children('.ion-md-pricetags').siblings().text().split(', ');
-				var dailyrate = rate[0].slice(1, rate[0].indexOf('/'));
-				var weeklylyrate = rate[1].slice(1, rate[1].indexOf('/'))
-				var monthlyrate = rate[2].slice(1, rate[2].indexOf('/'))
-				var car_data = { carname: carname, dailyrate: dailyrate, weeklylyrate: weeklylyrate, monthlyrate: monthlyrate }
-				sessionStorage.setItem('current_booking_cardata', JSON.stringify(car_data));
-			})
-		});
-
-
-		function Logout() {
-			sessionStorage.removeItem('email')
-			sessionStorage.removeItem('fullname')
-			window.location.replace("logout.html");
-		}
-	</script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('#bookingForm').fadeIn(1500, function () { });
-		});
-	</script>
-
-	<script>
-		$(document).ready(function () {
-			$("#toggle").click(function () {
-				$("#content").toggle(1000);
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$('#bookingForm').fadeIn(1500, function () { });
 			});
-		});
-	</script>
-	<!-- <script>
-    var booking_data = [{"12345qwerty":{booking_reference: "12345qwerty", fullname: "Mike Brown", pickup_date: new Date("2021-05-25").toISOString().slice(0, 10), hour: "2", minute: "00", am_pm: "PM", return_date: new Date("2021-05-31").toISOString().slice(0, 10)}},
-						{"54321asdfgh":{booking_reference: "54321asdfgh", fullname: "Jane Richard", pickup_date: new Date("2021-04-17").toISOString().slice(0, 10), hour: "10", minute: "30", am_pm: "AM", return_date: new Date("2021-04-20").toISOString().slice(0, 10)}}
-	];
-</script> -->
+			$('.footer-distributed').css('margin-top', '0px');
+		</script>
 
-	<script>
+		<script>
+			$(document).ready(function () {
+				$("#toggle").click(function () {
+					$("#content").toggle(1000);
+				});
+			});
+		</script>
 
-		function viewBooking() {
-			$('#booking_msg').html('');
-			booked_car_data = JSON.parse(sessionStorage.getItem("booked_cardata"));
-			if (booked_car_data) {
-				$("#bookingDetails").show(1500);
-				document.getElementById("bookingref").value = booked_car_data["bookingref"];
-				$('#bookingref').prop('disabled', true);
-				document.getElementById("fullname").value = booked_car_data["fullName"];
-				document.getElementById("carName").value = booked_car_data["carName"];
-				document.getElementById("final").value = booked_car_data["finalCost"];
-				document.getElementById("cost").value = booked_car_data["finalCost"];
-				document.getElementById("pickup_date").value = new Date(booked_car_data["pickupDate"]).toISOString().slice(0, 10);
-				document.getElementById("return_date").value = new Date(booked_car_data["dropoffDate"]).toISOString().slice(0, 10);
-				document.getElementById("booking").style.backgroundImage = "url(" + booked_car_data['carImage'] + ")";
+		<script>
+			var booking = '<%- JSON.stringify(booking) %>';
+			var booked_car_data = JSON.parse(booking.replace("\n", ""));
+			var car = '<%- JSON.stringify(vehicle) %>';
+			var car_data = JSON.parse(car.replace("\n", ""));
+			function viewBooking() {
+				$('#booking_msg').html('');
 
+				if (booked_car_data) {
+					$("#bookingDetails").show(1500);
+					document.getElementById("pickup_date").value = new Date(booked_car_data["Pickup_date"]).toISOString().slice(0, 10);
+					document.getElementById("return_date").value = new Date(booked_car_data["Dropoff_date"]).toISOString().slice(0, 10);
+					debugger;
+					document.getElementById("booking").style.backgroundImage = "url(" + car_data['Img_path'] + ")";
 
-				document.getElementById("viewBookingbtn").style.display = "none";
-				document.getElementById("ref").style.display = "inline";
-				document.getElementById("modifyBookingbtn").style.display = "inline";
-				document.getElementById("cancelBookingbtn").style.display = "inline";
+					document.getElementById("viewBookingbtn").style.display = "none";
+					document.getElementById("ref").style.display = "inline";
+					document.getElementById("modifyBookingbtn").style.display = "inline";
+					document.getElementById("cancelBookingbtn").style.display = "inline";
+				}
+				else {
+					$('#booking_msg').html('No Booking found!!')
+				}
 			}
-			else {
-				$('#booking_msg').html('No Booking found!!')
+
+			function modifyBooking() {
+				$('#booking_msg').html('');
+				$('#pickup_date').prop('disabled', false);
+				$('#return_date').prop('disabled', false);
+				document.getElementById("modifyBookingbtn").style.display = "none";
+				document.getElementById("saveBookingbtn").style.display = "inline";
 			}
-		}
+			$('.date_picker').on('change', function () {
+				debugger;
+				// var car = '<%- JSON.stringify(vehicle) %>';
+				// var car_data = JSON.parse(car.replace("\n", ""));
+				pickup = $('#pickup_date').val();
+				dropoff = $('#return_date').val();
+				dailyrate = car_data.Price_Daily;
+				weeklyrate = car_data.Price_Weekly;
+				monthlyrate = car_data.Price_Monthly;
+				if (pickup != undefined && pickup != null && pickup != "" && dropoff != undefined && dropoff != null && dropoff != "") {
 
-		function modifyBooking() {
-			$('#booking_msg').html('');
-			$('#pickup_date').prop('disabled', false);
-			$('#return_date').prop('disabled', false);
-			document.getElementById("modifyBookingbtn").style.display = "none";
-			document.getElementById("saveBookingbtn").style.display = "inline";
-		}
-		$('.date_picker').on('change', function () {
-			car_data = JSON.parse(sessionStorage.getItem("current_booking_cardata"));
-			pickup = $('#pickup_date').val();
-			dropoff = $('#return_date').val();
-			if (pickup != undefined && pickup != null && pickup != "" && dropoff != undefined && dropoff != null && dropoff != "") {
+					pickup_date = new Date(pickup);
+					dropoff_date = new Date(dropoff);
+					if (pickup_date < dropoff_date) {
 
-				pickup_date = new Date(pickup);
-				dropoff_date = new Date(dropoff);
-				if (pickup_date < dropoff_date) {
-					t1 = pickup_date.getTime();
-					t2 = dropoff_date.getTime();
-					var diff1 = Math.abs(t2 - t1);
-					var millisecondsInADay = (1000 * 3600 * 24);
-					var diffindays = diff1 / millisecondsInADay;
-					var week_quot = 0;
-					var week_rem = 0;
+						t1 = pickup_date.getTime();
+						t2 = dropoff_date.getTime();
+						var diff1 = Math.abs(t2 - t1);
+						var millisecondsInADay = (1000 * 3600 * 24);
+						var diffindays = diff1 / millisecondsInADay;
+						var week_quot = 0;
+						var week_rem = 0;
+						var rem;
 
-					var week = 7;
+						var week = 7;
 
 
-					if (diffindays < 7) {
+						if (diffindays < 7) {
 
-						rate = car_data["dailyrate"];
-					}
-					else if (diffindays < 30) {
 
-						diff = Math.floor(diffindays / week);
-						rem = diffindays % week;
-						rate = (car_data["weeklyrate"] * diff) + (rem * car_data["dailyrate"]);
-					}
-					else {
+							rate = dailyrate * diffindays;
+						}
+						else if (diffindays < 30) {
 
-						diff = Math.floor(diffindays / 30);
-						rem_month = diffindays % 30;
-						if (rem_month > 7) {
-							week_quot = Math.floor(rem_month / 7);
-							week_rem = rem_month % week;
+
+							diff = Math.floor(diffindays / week);
+							rem = diffindays % week;
+							rate = (weeklyrate * diff) + (rem * dailyrate);
 
 						}
 						else {
-							week_rem = rem_month % week;
+							diff = Math.floor(diffindays / 30);
+							rem_month = diffindays % 30;
+							if (rem_month > 7) {
+								week_quot = Math.floor(rem_month / 7);
+								week_rem = rem_month % week;
+
+							}
+
+
+							else {
+
+								week_rem = rem_month % week;
+							}
+
+							rate = (monthlyrate * diff) + (weeklyrate * week_quot) + (week_rem * dailyrate);
+
 
 						}
-						rate = (car_data["monthlyrate"] * diff) + (car_data["weeklyrate"] * week_quot) + (week_rem * car_data["dailyrate"]);
+						cost = (rate).toFixed(2);
+						// final = "Total Cost : $" + cost;
+						// debugger;
+						document.getElementById('cost').value = cost;
+						document.getElementById('cost_hidden').value = cost;
+
+					}
+					else {
+						alert("Please select a valid drop-off date!!");
 					}
 				}
-				cost = (rate).toFixed(2);
-				final = cost;
-				document.getElementById("costdiv").style.display = "none";
-				document.getElementById("finaldiv").style.display = "inline";
-				document.getElementById('final').value = final;
+			});
+
+			function saveBooking() {
+
+				document.getElementById("booking_msg").style.color = "green";
+				$('#booking_msg').html('Booking Modified!')
 			}
-		});
 
-		function saveBooking() {
-			booked_car_data = JSON.parse(sessionStorage.getItem("booked_cardata"));
-			$('#booking_msg').html('');
-			var pickupDate = new Date($('#pickup_date').val());
-			var dropoffDate = new Date($('#return_date').val());
-			var bookingref = $('#bookingref').val();
-			var carName = $('#carName').val();
-			var fullName = $('#fullname').val();
-			var final = $('#final').val();
-			var carImage = booked_car_data['carImage']
-			var booked_car_data = { bookingref: bookingref, fullName: fullName, carName: carName, pickupDate: pickupDate, dropoffDate: dropoffDate, finalCost: final, carImage: carImage };
-			sessionStorage.setItem('booked_cardata', JSON.stringify(booked_car_data));
+			function cancelBooking() {
+				$('#booking_msg').html('');
 
-			document.getElementById("booking_msg").style.color = "green";
-			$('#booking_msg').html('Booking Modified!')
-		}
-
-		function cancelBooking() {
-			$('#booking_msg').html('');
-			sessionStorage.clear();
-			document.getElementById("booking_msg").style.color = "red";
-			$('#booking_msg').html('Booking Cancelled!')
-		}
+				document.getElementById("booking_msg").style.color = "red";
+				$('#booking_msg').html('Booking Cancelled!')
+			}
 
 
-	</script>
+		</script>
 
 
-	<footer class="footer-distributed footer">
+		</body>
 
-		<div class="footer-left">
-			<img src="images/logo1.jpg">
-			<h3>About<span>DriveSmart</span></h3>
-
-			<p class="footer-links">
-				<a href="#">Home</a>
-				|
-				<a href="#">Blog</a>
-				|
-				<a href="#">About</a>
-				|
-				<a href="#">Contact</a>
-			</p>
-
-			<p class="footer-company-name">© 2021 Drive Smart </p>
-		</div>
-
-		<div class="footer-center">
-			<div>
-				<i class="fa fa-map-marker"></i>
-				<p><span>123 Dundas StBrantford
-					</span>
-					Toronto,ON N3R 1S6,Canada</p>
-			</div>
-
-			<div>
-				<i class="fa fa-phone"></i>
-				<p>+1 123-256-7890</p>
-			</div>
-			<div>
-				<i class="fa fa-envelope"></i>
-				<p><a href="mailto:support@drivesmart.com">support@drivesmart.com</a></p>
-			</div>
-		</div>
-		<div class="footer-right">
-			<p class="footer-company-about">
-				<span>About the company</span>
-				We offer renting service.
-			</p>
-			<div class="footer-icons">
-				<a href="#"><i class="fa fa-facebook"></i></a>
-				<a href="#"><i class="fa fa-twitter"></i></a>
-				<a href="#"><i class="fa fa-instagram"></i></a>
-				<a href="#"><i class="fa fa-linkedin"></i></a>
-				<a href="#"><i class="fa fa-youtube"></i></a>
-			</div>
-		</div>
-	</footer>
-
-
-</body>
-
-</html>
+		</html>

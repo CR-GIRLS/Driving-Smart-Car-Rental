@@ -109,7 +109,11 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
         <script>
 
-
+            $(document).ready(function () {
+                var editUser = '<%- JSON.stringify(editUser) %>';
+                editUser = JSON.parse(editUser.replace("\n", ""));
+                document.getElementById("return_date").value = new Date(editUser["Birthdate"]).toISOString().slice(0, 10);
+            });
             // $("#profile_update").click(function (event) {
             //     var firstname = $('#fname').val();
             //     var lastname = $('#lname').val();
