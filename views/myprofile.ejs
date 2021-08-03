@@ -115,7 +115,7 @@
             $(document).ready(function () {
                 var editUser = '<%- JSON.stringify(editUser) %>';
                 editUser = JSON.parse(editUser.replace("\n", ""));
-                document.getElementById("return_date").value = new Date(editUser["Birthdate"]).toISOString().slice(0, 10);
+                document.getElementById("Birthdate").value = new Date(editUser["Birthdate"]).toISOString().slice(0, 10);
             });
             // $("#profile_update").click(function (event) {
             //     var firstname = $('#fname').val();

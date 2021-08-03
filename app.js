@@ -58,7 +58,7 @@ global.__basedir = __dirname;
 
 
 //Services
-app.get(['/','/index'], vehicleController.GetVehiclesOnOffer);
+app.get(['/','/index','/home'], vehicleController.GetVehiclesOnOffer);
 
 app.get('/signin', function(req,res){
     res.render('SignIn');
@@ -79,6 +79,10 @@ app.post('/signup/add',userController.SaveUser);
 
 app.get('/car', vehicleController.GetCars);
 
+app.get('/suv', vehicleController.GetSUVs);
+
+app.get('/van', vehicleController.GetVans);
+
 app.get('/book',vehicleController.GetVehicleById);
 
 app.post('/book/add',bookingController.SaveBooking);
@@ -86,10 +90,6 @@ app.post('/book/add',bookingController.SaveBooking);
 app.put('/book/edit',bookingController.EditBooking);
 
 app.delete('/book/delete',bookingController.DeleteBooking);
-
-app.get('/suv', vehicleController.GetSUVs);
-
-app.get('/van', vehicleController.GetVans);
 
 app.get('/aboutus', function(req,res){
     res.render('Aboutus')
