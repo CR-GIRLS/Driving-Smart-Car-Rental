@@ -27,6 +27,9 @@ Setting up project
 12. run command -> npm install --save express-validator
 13. run command -> npm install express-messages
 14. run command -> npm install formidable
+15. run command -> npm install connect-flash
+16. run command -> npm install body-parser
+17. run command -> npm install path
 
 
 To Run the project
